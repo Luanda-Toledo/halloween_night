@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="297mm"
+   height="210mm"
+   id="svg2438"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="sorlo_front1.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/home/laurence/programation/jeu video/sorlo/sorlo_seul_contour_d.png"
+   inkscape:export-xdpi="31.298321"
+   inkscape:export-ydpi="31.298321">
+  <defs
+     id="defs2440">
+    <linearGradient
+       id="linearGradient3268">
+      <stop
+         id="stop3270"
+         offset="0"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+      <stop
+         style="stop-color:#0f1c29;stop-opacity:1;"
+         offset="1"
+         id="stop3272" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3254">
+      <stop
+         id="stop3256"
+         offset="0"
+         style="stop-color:#376e83;stop-opacity:1;" />
+      <stop
+         style="stop-color:#23313e;stop-opacity:1;"
+         offset="1"
+         id="stop3258" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3284">
+      <stop
+         style="stop-color:#2c5adb;stop-opacity:1;"
+         offset="0"
+         id="stop3286" />
+      <stop
+         id="stop3292"
+         offset="1"
+         style="stop-color:#020130;stop-opacity:1;" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3284"
+       id="radialGradient3290"
+       cx="979.66461"
+       cy="534.93903"
+       fx="979.66461"
+       fy="534.93903"
+       r="59.07611"
+       gradientTransform="matrix(0.9362169,-0.9716708,0.8221387,0.7921407,-825.54335,1050.1065)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient3344">
+      <stop
+         style="stop-color:#a36329;stop-opacity:1;"
+         offset="0"
+         id="stop3346" />
+      <stop
+         style="stop-color:#4d2f1b;stop-opacity:1;"
+         offset="1"
+         id="stop3348" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3344"
+       id="radialGradient3352"
+       cx="947.99762"
+       cy="614.91156"
+       fx="947.99762"
+       fy="614.91156"
+       r="69.041389"
+       gradientTransform="matrix(1.3416319,-0.6538745,-0.3230484,1.300757,-601.14913,438.87201)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient3392">
+      <stop
+         style="stop-color:#e3c5b2;stop-opacity:1;"
+         offset="0"
+         id="stop3394" />
+      <stop
+         style="stop-color:#d08858;stop-opacity:1;"
+         offset="1"
+         id="stop3396" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3392"
+       id="linearGradient3398"
+       x1="948.45645"
+       y1="601.04522"
+       x2="983.55188"
+       y2="601.04522"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.2693001,0,0,0.9975424,-681.38145,12.430686)" />
+    <linearGradient
+       id="linearGradient3306">
+      <stop
+         style="stop-color:#6fc5e8;stop-opacity:1;"
+         offset="0"
+         id="stop3308" />
+      <stop
+         id="stop3314"
+         offset="1"
+         style="stop-color:#4b84bc;stop-opacity:1;" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3306"
+       id="radialGradient3312"
+       cx="969.97235"
+       cy="591.58643"
+       fx="969.97235"
+       fy="591.58643"
+       r="15.4031"
+       gradientTransform="matrix(1.4796314,0,0,1.7419518,-883.06305,-429.62)"
+       gradientUnits="userSpaceOnUse"
+       spreadMethod="pad" />
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 372.04724 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="1052.3622 : 372.04724 : 1"
+       inkscape:persp3d-origin="526.18109 : 248.03149 : 1"
+       id="perspective2447" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3284"
+       id="radialGradient2476"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.095406,-0.5669886,0.4149246,0.8016226,-771.33265,664.59503)"
+       cx="979.66459"
+       cy="534.93905"
+       fx="979.66459"
+       fy="534.93905"
+       r="59.07611" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3392"
+       id="linearGradient2478"
+       gradientUnits="userSpaceOnUse"
+       x1="948.45645"
+       y1="601.04522"
+       x2="983.55188"
+       y2="601.04522"
+       gradientTransform="matrix(1.5214036,0,0,1.4403713,-950.51885,-234.72557)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3392"
+       id="linearGradient2480"
+       gradientUnits="userSpaceOnUse"
+       x1="948.45645"
+       y1="601.04522"
+       x2="983.55188"
+       y2="601.04522"
+       gradientTransform="matrix(1.6334066,0,0,0.9930531,-1071.1041,9.2964588)" />
+    <inkscape:perspective
+       id="perspective2416"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2453"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3254"
+       id="radialGradient3260"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4796314,0,0,1.7419518,-883.49005,-431.00168)"
+       spreadMethod="pad"
+       cx="969.97235"
+       cy="591.58643"
+       fx="969.97235"
+       fy="591.58643"
+       r="15.4031" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3268"
+       id="radialGradient3266"
+       cx="948.12445"
+       cy="533.30597"
+       fx="948.12445"
+       fy="533.30597"
+       r="2.915092"
+       gradientTransform="matrix(0.5477489,0.7554252,-0.5090589,0.5943952,701.1884,-500.4227)"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3306"
+       id="radialGradient3280"
+       cx="506.75427"
+       cy="612.61304"
+       fx="506.75427"
+       fy="612.61304"
+       r="75.660156"
+       gradientTransform="matrix(0.9995026,0,0,0.7497184,22.165558,154.82574)"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3392"
+       id="linearGradient3285"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.6334066,0,0,0.9930531,-1050.8516,11.495841)"
+       x1="948.45645"
+       y1="601.04522"
+       x2="983.55188"
+       y2="601.04522" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3268"
+       id="radialGradient2450"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.5477489,0.7554252,-0.5090589,0.5943952,701.1884,-500.4227)"
+       cx="948.12445"
+       cy="533.30597"
+       fx="948.12445"
+       fy="533.30597"
+       r="2.915092" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3254"
+       id="radialGradient2484"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4796314,0,0,1.7419518,-1043.3362,-418.45706)"
+       spreadMethod="pad"
+       cx="969.97235"
+       cy="591.58643"
+       fx="969.97235"
+       fy="591.58643"
+       r="15.4031" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3392"
+       id="linearGradient2486"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.2693001,0,0,0.9975424,-841.22766,24.97531)"
+       x1="948.45645"
+       y1="601.04522"
+       x2="983.55188"
+       y2="601.04522" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3306"
+       id="radialGradient2488"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4796314,0,0,1.7419518,-1042.9092,-417.07538)"
+       spreadMethod="pad"
+       cx="969.97235"
+       cy="591.58643"
+       fx="969.97235"
+       fy="591.58643"
+       r="15.4031" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3254"
+       id="radialGradient2494"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.9433326,-1.1399266,-1.3420216,1.1105738,2205.3958,1051.0007)"
+       spreadMethod="pad"
+       cx="969.97235"
+       cy="591.58643"
+       fx="969.97235"
+       fy="591.58643"
+       r="15.4031" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3392"
+       id="linearGradient2496"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.8092368,-0.9778848,-0.7685192,0.6359788,1734.9165,1178.0021)"
+       x1="948.45645"
+       y1="601.04522"
+       x2="983.55188"
+       y2="601.04522" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3306"
+       id="radialGradient2498"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.9433326,-1.1399266,-1.3420216,1.1105738,2204.0591,1051.5526)"
+       spreadMethod="pad"
+       cx="969.97235"
+       cy="591.58643"
+       fx="969.97235"
+       fy="591.58643"
+       r="15.4031" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3344"
+       id="radialGradient2500"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.3243515,-0.688201,-0.2894505,1.3086433,-565.04975,466.48242)"
+       cx="947.99762"
+       cy="614.91156"
+       fx="947.99762"
+       fy="614.91156"
+       r="69.041389" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:document-units="mm"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.52"
+     inkscape:cx="387.13945"
+     inkscape:cy="142.4998"
+     inkscape:current-layer="layer6"
+     id="namedview2442"
+     showgrid="false"
+     inkscape:window-width="1217"
+     inkscape:window-height="712"
+     inkscape:window-x="77"
+     inkscape:window-y="97"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       orientation="0,1"
+       position="358.7963,73.611111"
+       id="guide2422" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="398.14815,267.12963"
+       id="guide3262" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata2444">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="cadre"
+     sodipodi:insensitive="true"
+     style="display:none">
+    <rect
+       style="opacity:0.70689655;fill:#ffeeaa;fill-opacity:1;fill-rule:evenodd;stroke:#192438;stroke-width:1.39495802;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3231"
+       width="192.51822"
+       height="192.51822"
+       x="394.87241"
+       y="477.96515" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer8"
+     inkscape:label="fond chapeau"
+     style="display:inline">
+    <path
+       style="opacity:1;fill:url(#radialGradient2476);fill-opacity:1;fill-rule:evenodd;stroke:#192438;stroke-width:3.01181102;stroke-linecap:butt;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="M 421.62087,539.46556 C 465.78163,519.05089 566.66121,534.12537 611.52814,555.1123 C 594.70292,564.03117 501.30378,596.67924 421.62087,539.46556 z"
+       id="path3272"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/home/laurence/jeu video/sorlo/sorlo_static/Sorlo_portrait-buste.png"
+       inkscape:export-xdpi="30.423191"
+       inkscape:export-ydpi="30.423191" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer7"
+     inkscape:label="bras droit"
+     style="display:inline">
+    <path
+       style="opacity:1;fill:url(#radialGradient2494);fill-opacity:1;fill-rule:evenodd;stroke:#214361;stroke-width:2.71417332;stroke-linecap:butt;stroke-linejoin:bevel;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="M 502.31692,625.54028 C 493.35016,615.22718 459.39436,605.84447 449.00723,608.94796 C 460.19629,622.90861 496.02454,625.91502 502.31692,625.54028 z"
+       id="path2478"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/home/laurence/jeu video/sorlo/sorlo_static/Sorlo_portrait-buste.png"
+       inkscape:export-xdpi="30.423191"
+       inkscape:export-ydpi="30.423191" />
+    <path
+       style="opacity:1;fill:url(#linearGradient2496);fill-opacity:1;fill-rule:evenodd;stroke:#a8613b;stroke-width:3.29881883;stroke-linecap:butt;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="M 510.98226,606.76481 C 498.00373,615.41689 500.87013,614.81894 495.78942,623.88942 C 495.74537,628.71244 496.05854,630.14939 495.53449,634.3924 C 497.25834,639.26236 490.71355,646.4086 486.84216,641.5145 C 481.86099,648.73523 467.30841,648.75163 459.59243,632.35467 C 455.50149,623.66117 462.35838,613.60515 466.80482,609.70145 C 469.26011,595.9645 471.51574,587.62567 493.46147,579.46076 C 507.59807,578.92746 515.99877,594.88679 510.98226,606.76481 z"
+       id="path2480"
+       sodipodi:nodetypes="ccccsccc"
+       inkscape:export-filename="/home/laurence/jeu video/sorlo/sorlo_static/Sorlo_portrait-buste.png"
+       inkscape:export-xdpi="30.423191"
+       inkscape:export-ydpi="30.423191" />
+    <path
+       style="opacity:1;fill:url(#radialGradient2498);fill-opacity:1;fill-rule:evenodd;stroke:#214361;stroke-width:5.19448805;stroke-linecap:butt;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="M 512.64019,605.50736 C 502.21287,613.59582 503.93211,617.15225 501.01256,624.38719 C 477.04748,610.7088 463.44044,606.96192 451.40557,607.85555 C 459.875,595.00396 477.50788,579.57496 496.21983,577.97312 C 504.93563,576.44907 519.65416,587.29311 512.64019,605.50736 z"
+       id="path2482"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/laurence/jeu video/sorlo/sorlo_static/Sorlo_portrait-buste.png"
+       inkscape:export-xdpi="30.423191"
+       inkscape:export-ydpi="30.423191" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="jambe">
+    <path
+       style="opacity:1;fill:url(#linearGradient3285);fill-opacity:1;fill-rule:evenodd;stroke:#a8613b;stroke-width:3.5007875;stroke-linecap:butt;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="M 510.95185,646.42388 C 503.33263,653.95079 490.91595,657.06459 488.22339,669.57756 L 561.60134,670.48337 C 561.77603,664.92511 551.93278,651.27285 552.31104,645.43219 C 553.24631,630.76508 553.3847,614.51843 533.53279,613.84244 C 518.13257,613.31804 513.24581,620.36872 510.74531,624.88164 C 506.05397,633.3487 510.50831,637.40356 510.95185,646.42388 z"
+       id="path3278"
+       sodipodi:nodetypes="cccsssc"
+       inkscape:export-filename="/home/laurence/jeu video/sorlo/sorlo_static/Sorlo_portrait-buste.png"
+       inkscape:export-xdpi="30.423191"
+       inkscape:export-ydpi="30.423191" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="corps"
+     style="display:inline">
+    <path
+       style="opacity:1;fill:url(#radialGradient3280);fill-opacity:1;fill-rule:evenodd;stroke:#214361;stroke-width:5.41417313;stroke-linecap:butt;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="M 500.17731,575.76337 C 513.59129,576.31707 534.19388,567.94127 542.73336,560.13534 C 570.4405,585.94298 576.3964,622.35163 606.61997,665.86093 C 581.80816,670.82153 471.53514,668.35551 455.71557,665.22216 C 465.87839,634.85657 478.70352,596.5333 500.17731,575.76337 z"
+       id="path3354"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/laurence/jeu video/sorlo/sorlo_static/Sorlo_portrait-buste.png"
+       inkscape:export-xdpi="30.423191"
+       inkscape:export-ydpi="30.423191" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="baton"
+     style="display:inline">
+    <path
+       style="fill:url(#radialGradient2500);fill-opacity:1;fill-rule:evenodd;stroke:#41211e;stroke-width:4.54476357;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;display:inline"
+       d="M 446.94527,562.19727 C 439.66787,564.1801 435.48651,574.76405 437.32896,580.59491 C 482.67027,604.53104 521.54837,631.7822 571.45162,656.78026 C 577.42877,655.59195 576.38127,651.90516 576.91771,648.71734 C 536.16654,626.32975 478.87299,585.91371 446.94527,562.19727 z"
+       id="path3282"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/laurence/jeu video/sorlo/sorlo_static/Sorlo_portrait-buste.png"
+       inkscape:export-xdpi="30.423191"
+       inkscape:export-ydpi="30.423191" />
+  </g>
+  <g
+     inkscape:label="tete"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline">
+    <path
+       style="opacity:1;fill:url(#linearGradient2478);fill-opacity:1;fill-rule:evenodd;stroke:#a8613b;stroke-width:4.05481339;stroke-linecap:butt;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="M 497.70065,500.50471 C 520.08379,483.97504 537.82543,489.95403 549.92219,502.89239 C 562.09299,515.90997 562.71389,530.43815 558.76275,540.50446 C 548.16951,567.49282 538.50491,575.30309 517.01338,576.00877 C 466.71345,577.66037 475.76941,516.70066 497.70065,500.50471 z"
+       id="path2492"
+       sodipodi:nodetypes="csssz"
+       inkscape:export-filename="/home/laurence/jeu video/sorlo/sorlo_static/Sorlo_portrait-buste.png"
+       inkscape:export-xdpi="30.423191"
+       inkscape:export-ydpi="30.423191" />
+    <path
+       style="opacity:1;fill:url(#radialGradient3260);fill-opacity:1;fill-rule:evenodd;stroke:#214361;stroke-width:2.71417332;stroke-linecap:butt;stroke-linejoin:bevel;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="M 530.08068,609.8212 C 543.74274,610.15423 572.61967,630.3323 576.85097,640.31329 C 558.96198,640.59365 533.80365,614.90784 530.08068,609.8212 z"
+       id="path3252"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/home/laurence/jeu video/sorlo/sorlo_static/Sorlo_portrait-buste.png"
+       inkscape:export-xdpi="30.423191"
+       inkscape:export-ydpi="30.423191" />
+    <path
+       style="opacity:1;fill:url(#linearGradient3398);fill-opacity:1;fill-rule:evenodd;stroke:#a8613b;stroke-width:3.29881883;stroke-linecap:butt;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="M 539.02098,591.17509 C 540.62972,606.69001 539.26293,604.10048 535.5141,613.79756 C 531.82647,616.9064 530.51977,617.58125 527.585,620.6901 C 522.73409,622.46684 521.40114,632.06508 527.6398,631.92744 C 525.25259,640.36854 534.51788,651.59049 552.0696,647.08117 C 561.37534,644.69037 564.75105,632.99657 564.9237,627.08219 C 573.94146,616.43267 578.92773,609.37852 571.22667,587.26575 C 562.6248,576.03473 544.97371,579.73753 539.02098,591.17509 z"
+       id="path3276"
+       sodipodi:nodetypes="ccccsccc"
+       inkscape:export-filename="/home/laurence/jeu video/sorlo/sorlo_static/Sorlo_portrait-buste.png"
+       inkscape:export-xdpi="30.423191"
+       inkscape:export-ydpi="30.423191" />
+    <path
+       style="opacity:1;fill:url(#radialGradient3312);fill-opacity:1;fill-rule:evenodd;stroke:#214361;stroke-width:5.19448805;stroke-linecap:butt;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="M 538.93274,589.09612 C 539.34917,602.28622 535.51316,603.22908 531.80062,610.09095 C 557.61746,619.83335 569.17921,627.92758 576.16353,637.76912 C 580.6649,623.05069 581.30983,599.6294 570.61419,584.19224 C 566.23162,576.50582 548.4935,572.08005 538.93274,589.09612 z"
+       id="path3274"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/laurence/jeu video/sorlo/sorlo_static/Sorlo_portrait-buste.png"
+       inkscape:export-xdpi="30.423191"
+       inkscape:export-ydpi="30.423191" />
+    <image
+       y="494.97861"
+       x="147.0247"
+       id="image2418"
+       height="172.70432"
+       width="166.84993"
+       sodipodi:absref="/home/laurence/programation/jeu video/propositions_usf/characters/BiX/BiX_walk1.png"
+       xlink:href="/home/laurence/programation/jeu video/propositions_usf/characters/BiX/BiX_walk1.png" />
+    <image
+       y="496.29059"
+       x="658.6488"
+       id="image2455"
+       height="172.22382"
+       width="212.20433"
+       sodipodi:absref="/home/laurence/programation/jeu video/propositions_usf/characters/blob/blob.png"
+       xlink:href="/home/laurence/programation/jeu video/propositions_usf/characters/blob/blob.png" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:url(#radialGradient3266);fill-opacity:1;fill-rule:evenodd;stroke:#0f1c29;stroke-width:0.97015876;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path3264"
+       sodipodi:cx="950.22156"
+       sodipodi:cy="533.15167"
+       sodipodi:rx="2.2843432"
+       sodipodi:ry="3.9160171"
+       d="M 952.5059,533.15167 A 2.2843432,3.9160171 0 1 1 947.93721,533.15167 A 2.2843432,3.9160171 0 1 1 952.5059,533.15167 z"
+       transform="matrix(3.7096261,0.3450629,-0.3523984,2.1028827,-2804.2483,-911.97321)"
+       inkscape:export-filename="/home/laurence/jeu video/sorlo/sorlo_static/Sorlo_portrait-buste.png"
+       inkscape:export-xdpi="30.423191"
+       inkscape:export-ydpi="30.423191" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#a8613b;stroke-width:4.36908054;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 511.08289,566.51867 C 516.57095,570.66851 525.97107,561.50309 525.97107,561.50309 C 523.41747,561.79436 504.96255,560.37687 502.23307,559.82682 L 511.08289,566.51867 z"
+       id="path3268"
+       sodipodi:nodetypes="cccs"
+       inkscape:export-filename="/home/laurence/jeu video/sorlo/sorlo_static/Sorlo_portrait-buste.png"
+       inkscape:export-xdpi="30.423191"
+       inkscape:export-ydpi="30.423191" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:url(#radialGradient2450);fill-opacity:1;fill-rule:evenodd;stroke:#0f1c29;stroke-width:0.97015876;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path2448"
+       sodipodi:cx="950.22156"
+       sodipodi:cy="533.15167"
+       sodipodi:rx="2.2843432"
+       sodipodi:ry="3.9160171"
+       d="M 952.5059,533.15167 A 2.2843432,3.9160171 0 1 1 947.93721,533.15167 A 2.2843432,3.9160171 0 1 1 952.5059,533.15167 z"
+       transform="matrix(3.7096261,0.3450629,-0.3523984,2.1028827,-2841.1714,-913.94715)"
+       inkscape:export-filename="/home/laurence/jeu video/sorlo/sorlo_static/Sorlo_portrait-buste.png"
+       inkscape:export-xdpi="30.423191"
+       inkscape:export-ydpi="30.423191" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="chapeau"
+     style="display:inline">
+    <path
+       style="opacity:1;fill:url(#radialGradient3290);fill-opacity:1;fill-rule:evenodd;stroke:#192438;stroke-width:5.86541891;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 423.81071,537.08632 C 458.40953,528.046 512.71953,509.83229 610.65489,555.32772 C 605.11169,546.19782 582.91455,526.86684 561.96211,517.41227 L 550.32442,487.03574 C 559.22866,503.97846 584.32735,524.94751 602.36848,530.7905 C 605.03713,528.08645 605.88355,525.11642 606.9248,519.15619 C 560.94274,498.44524 558.5207,464.48702 526.04845,465.13857 C 484.39156,495.74183 494.02327,488.7906 479.50961,506.35179 C 466.38398,512.48248 442.81018,523.47096 423.81071,537.08632 z"
+       id="path3270"
+       sodipodi:nodetypes="ccccccccc"
+       inkscape:export-filename="/home/laurence/jeu video/sorlo/sorlo_static/Sorlo_portrait-buste.png"
+       inkscape:export-xdpi="30.423191"
+       inkscape:export-ydpi="30.423191" />
+  </g>
+</svg>
