@@ -6,7 +6,7 @@ from auxiliar import Auxiliar
 
 class Player:
 
-    def __init__(self,x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height) -> None:
+    def __init__(self, x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height) -> None:
 
         # En la medida que vaya caminando va a ir pasando de una superficie a la otra
         self.walk_r = Auxiliar.getSurfaceFromSpriteSheet("images/caracters/stink/walk.png", 15, 1)
@@ -50,6 +50,7 @@ class Player:
         self.move_rate_ms = move_rate_ms
         self.y_start_jump = 0 # Valor inicial del salto en y
         self.jump_height = jump_height
+        self.rect_ground_collition = pygame.Rect(self.rect.x + self.rect.w / 3, self.rect.y + self.rect.h - GROUND_RECT_H, self.rect.w / 3, GROUND_RECT_H)
 
 
     def walk(self, direction): # Accion Caminar
@@ -124,6 +125,25 @@ class Player:
                 self.frame += 1 
             else: 
                 self.frame = 0
+
+    def is_on_platform(self, lista_plataformas):
+        retorno = False
+        if(self.rect.y >= GROUND_LEVEL):     
+            retorno = True
+        else:
+            for plataforma in lista_plataformas:
+                if(self.rect_ground_collition.colliderect(plataforma.rect_ground_collition)):
+                    retorno = True
+                    break   
+        return retorno
+                           
+    def add_x(self, delta_x):
+        self.rect.x += delta_x
+        self.rect_ground_collition.x += delta_x
+
+    def add_y(self, delta_y):
+        self.rect.y += delta_y  
+        self.rect_ground_collition.y += delta_y
 
 
     def update(self, delta_ms): # Actualizar 

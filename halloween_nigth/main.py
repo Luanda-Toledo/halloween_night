@@ -2,6 +2,7 @@ import pygame, sys
 from curses import KEY_DOWN, KEY_LEFT, KEY_RIGHT
 from constantes import *
 from personajes.player import Player
+from plataforma.pantalla_principal import Platform
 
 
 # SUPERFICIE PRICIPAL (VENTANA)
@@ -14,7 +15,12 @@ clock = pygame.time.Clock() # Obtenemos el tiempo
 img_fondo = pygame.image.load("halloween_nigth/recursos/fondo/1_game_background/1_game_background.png")
 img_fondo = pygame.transform.scale(img_fondo, (ANCHO_VENTANA, ALTO_VENTANA))
 
+# Creamos el objeto primer jugador
 player_one = Player(x = 0, y = 400, speed_walk = 4, speed_run = 8, gravity = 8, jump_power = 25, frame_rate_ms = 80, move_rate_ms = 40, jump_height = 150)
+
+lista_plataformas = []
+lista_plataformas.append(Platform(400,500,50,50,1))
+lista_plataformas.append(Platform(480,500,50,50,1))
 
 while True:
     for event in pygame.event.get():
@@ -27,6 +33,9 @@ while True:
     # Cantidad de tiempo en milisegundos que paso desde que entre a while hasta que salimos
     delta_ms = clock.tick(FPS)
     ventana_principal.blit(img_fondo, img_fondo.get_rect())
+
+    for plataforma in lista_plataformas:
+        plataforma.draw(ventana_principal)
 
     # player update - verificar como el player interactua con todo el nivel
     player_one.update(delta_ms)
