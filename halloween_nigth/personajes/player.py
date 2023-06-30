@@ -9,16 +9,16 @@ class Player:
     def __init__(self, x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height) -> None:
 
         # En la medida que vaya caminando va a ir pasando de una superficie a la otra
-        self.walk_r = Auxiliar.getSurfaceFromSpriteSheet("images/caracters/stink/walk.png", 15, 1)
-        self.walk_l = Auxiliar.getSurfaceFromSpriteSheet("images/caracters/stink/walk.png", 15, 1, True)
+        self.walk_r = Auxiliar.getSurfaceFromSpriteSheet("halloween_nigth/recursos/personaje/sorlo/walk1.png", 15, 1)
+        self.walk_l = Auxiliar.getSurfaceFromSpriteSheet("halloween_nigth/recursos/personaje/sorlo/walk2.png", 15, 1, True)
 
         # Mientras el personaje se encuentra quieto
-        self.stay_r = Auxiliar.getSurfaceFromSpriteSheet("images/caracters/stink/idle.png", 16, 1)
-        self.stay_l = Auxiliar.getSurfaceFromSpriteSheet("images/caracters/stink/idle.png", 16, 1, True)
+        self.stay_r = Auxiliar.getSurfaceFromSpriteSheet("halloween_nigth/recursos/personaje/sorlo/static.png", 16, 1)
+        self.stay_l = Auxiliar.getSurfaceFromSpriteSheet("halloween_nigth/recursos/personaje/sorlo/static.png", 16, 1, True)
 
         # Mientras salta
-        self.jump_r = Auxiliar.getSurfaceFromSpriteSheet("images/caracters/stink/jump.png", 33, 1, False, 2)
-        self.jump_l = Auxiliar.getSurfaceFromSpriteSheet("images/caracters/stink/jump.png", 33, 1, True, 2)
+        self.jump_r = Auxiliar.getSurfaceFromSpriteSheet("halloween_nigth/recursos/personaje/sorlo/jump1.png", 33, 1, False, 2)
+        self.jump_l = Auxiliar.getSurfaceFromSpriteSheet("halloween_nigth/recursos/personaje/sorlo/jump1.png", 33, 1, True, 2)
 
         # Cada fotograma que compone la imagen, para animar al personaje
         self.frame = 0
@@ -50,7 +50,10 @@ class Player:
         self.move_rate_ms = move_rate_ms
         self.y_start_jump = 0 # Valor inicial del salto en y
         self.jump_height = jump_height
-        self.rect_ground_collition = pygame.Rect(self.rect.x + self.rect.w / 3, self.rect.y + self.rect.h - GROUND_RECT_H, self.rect.w / 3, GROUND_RECT_H)
+        self.collition_rect = pygame.Rect(x+self.rect.width/3,y,self.rect.width/3,self.rect.height)
+        self.ground_collition_rect = pygame.Rect(self.collition_rect)
+        self.ground_collition_rect.height = GROUND_COLLIDE_H
+        self.ground_collition_rect.y = y + self.rect.height - GROUND_COLLIDE_H
 
 
     def walk(self, direction): # Accion Caminar

@@ -27,10 +27,10 @@ class FormMenuB(Form):
         
        
         self.txt1 = TextBox(master = self, x = 0, y = 50, w = 240, h = 40, color_background = None, color_border = None,
-                            image_background="images/gui/set_gui_01/Comic_Border/Buttons/Button_XL_08.png",
+                            image_background = "halloween_nigth/recursos/objetos_pantalla/boton.jpeg",
                             text = "Text", font = "Verdana", font_size = 30, font_color = C_BLACK)
         self.txt2 = TextBox(master = self, x = 0, y = 100, w = 240, h = 40, color_background = None, color_border = None,
-                            image_background="images/gui/set_gui_01/Comic_Border/Buttons/Button_XL_08.png",
+                            image_background = "halloween_nigth/recursos/objetos_pantalla/boton.jpeg",
                             text = "Text", font = "Verdana", font_size = 30, font_color = C_BLACK)
        
         
