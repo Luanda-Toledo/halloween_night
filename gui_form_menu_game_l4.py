@@ -11,7 +11,6 @@ from plataforma import Plataform
 from background import Background
 from bullet import Bullet
 from enemy_esqueletin import EnemyEsqueletin
-from enemy_araña import EnemyAraña
 from enemy_princ import EnemyPrinc
 
 class FormGameLevel4(Form):
@@ -19,11 +18,11 @@ class FormGameLevel4(Form):
         super().__init__(name,master_surface,x,y,w,h,color_background,color_border,active)
 
         # --- GUI WIDGET --- 
-        self.boton1 = Button(master=self,x=0,y=0,w=140,h=50,color_background=None,color_border=None,image_background="images/gui/set_gui_01/Comic_Border/Buttons/Button_M_02.png",on_click=self.on_click_boton1,on_click_param="form_menu_principal",text="BACK",font="Verdana",font_size=30,font_color=C_WHITE)
-        self.boton2 = Button(master=self,x=200,y=0,w=140,h=50,color_background=None,color_border=None,image_background="images/gui/set_gui_01/Comic_Border/Buttons/Button_M_02.png",on_click=self.on_click_boton1,on_click_param="form_menu_settings",text="PAUSE",font="Verdana",font_size=30,font_color=C_WHITE)
-        self.boton_shoot = Button(master=self,x=400,y=0,w=140,h=50,color_background=None,color_border=None,image_background="images/gui/set_gui_01/Comic_Border/Buttons/Button_M_02.png",on_click=self.on_click_shoot,on_click_param="form_menu_settings",text="SHOOT",font="Verdana",font_size=30,font_color=C_WHITE)
+        self.boton1 = Button(master=self,x=0,y=0,w=140,h=50,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_boton1,on_click_param="form_menu_principal",text="BACK",font="Verdana",font_size=30,font_color=C_WHITE)
+        self.boton2 = Button(master=self,x=200,y=0,w=140,h=50,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_boton1,on_click_param="form_menu_settings",text="PAUSE",font="Verdana",font_size=30,font_color=C_WHITE)
+        self.boton_shoot = Button(master=self,x=400,y=0,w=140,h=50,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_shoot,on_click_param="form_menu_settings",text="SHOOT",font="Verdana",font_size=30,font_color=C_WHITE)
        
-        self.pb_lives = ProgressBar(master=self,x=500,y=50,w=240,h=50,color_background=None,color_border=None,image_background="images/gui/set_gui_01/Comic_Border/Bars/Bar_Background01.png",image_progress="images/gui/set_gui_01/Comic_Border/Bars/Bar_Segment05.png",value = 5, value_max=5)
+        self.pb_lives = ProgressBar(master=self,x=500,y=50,w=240,h=50,color_background=None,color_border=None,image_background="recursos/images/gui/set_gui_01/Comic/Bars/Bar_Background03.png",image_progress="recursos/images/gui/jungle/upgrade/b.png",value = 5, value_max=5)
         self.widget_list = [self.boton1,self.boton2,self.pb_lives,self.boton_shoot]
 
         # --- GAME ELEMNTS --- 
@@ -34,9 +33,7 @@ class FormGameLevel4(Form):
         self.enemy_list = []
         self.enemy_list.append (EnemyEsqueletin(x=1300,y=300,speed_walk=2,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=150,move_rate_ms=50,jump_height=140,p_scale=0.04,interval_time_jump=1000))
         self.enemy_list.append (EnemyEsqueletin(x=1100,y=500,speed_walk=2,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=300,move_rate_ms=50,jump_height=140,p_scale=0.04,interval_time_jump=500))
-        self.enemy_list.append (EnemyEsqueletin(x=700,y=500,speed_walk=2,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.04,interval_time_jump=1000))
         self.enemy_list.append (EnemyEsqueletin(x=900,y=500,speed_walk=2,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=600,move_rate_ms=50,jump_height=140,p_scale=0.04,interval_time_jump=500))
-        self.enemy_list.append (EnemyEsqueletin(x=450,y=500,speed_walk=1,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.04,interval_time_jump=1000))
         self.enemy_list.append (EnemyEsqueletin(x=200,y=400,speed_walk=1,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.04,interval_time_jump=1000))
         
         self.enemy_list.append (EnemyMurcielg(x=400,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
@@ -49,11 +46,6 @@ class FormGameLevel4(Form):
         self.enemy_list.append (EnemyMurcielg(x=1200,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=800))
         self.enemy_list.append (EnemyMurcielg(x=1100,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
         self.enemy_list.append (EnemyMurcielg(x=600,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=800))
-
-        self.enemy_list.append (EnemyAraña(x=900,y=400,speed_walk=1,speed_run=2,gravity=0,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.08,interval_time_jump=500))
-        self.enemy_list.append (EnemyAraña(x=100,y=400,speed_walk=1,speed_run=2,gravity=0,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.08,interval_time_jump=800))
-        self.enemy_list.append (EnemyAraña(x=1400,y=350,speed_walk=1,speed_run=2,gravity=0,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.08,interval_time_jump=500))
-        self.enemy_list.append (EnemyAraña(x=1200,y=0,speed_walk=1,speed_run=2,gravity=0,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.08,interval_time_jump=800))
 
         self.enemy_list.append (EnemyPrinc(x=800,y=400,speed_walk=3,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=1000,move_rate_ms=10,jump_height=140,p_scale=0.04,interval_time_jump=500))
         #self.config_json = config_json
@@ -118,7 +110,7 @@ class FormGameLevel4(Form):
 
     def on_click_shoot(self, parametro):
         for enemy_element in self.enemy_list:
-            self.bullet_list.append(Bullet(enemy_element,enemy_element.rect.centerx,enemy_element.rect.centery,self.player_1.rect.centerx,self.player_1.rect.centery,20,path="images/gui/set_gui_01/Comic_Border/Bars/Bar_Segment05.png",frame_rate_ms=100,move_rate_ms=20,width=5,height=5))
+            self.bullet_list.append(Bullet(enemy_element,enemy_element.rect.centerx,enemy_element.rect.centery,self.player_1.rect.centerx,self.player_1.rect.centery,20,path="recursos/images/gui/jungle/upgrade/a.png",frame_rate_ms=100,move_rate_ms=20,width=5,height=5))
 
         
 

@@ -10,6 +10,7 @@ from gui_form_menu_game_l1 import FormGameLevel1
 from gui_form_menu_game_l2 import FormGameLevel2
 from gui_form_menu_game_l3 import FormGameLevel3
 from gui_form_menu_game_l4 import FormGameLevel4
+from gui_form_menu_levels import FormMenuLevels
 
 flags = DOUBLEBUF 
 screen = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA), flags, 16)
@@ -19,7 +20,10 @@ clock = pygame.time.Clock()
 
 form_menu_A = FormMenuA(name = "form_menu_principal", master_surface = screen, x = 550, y = 300, w = 400, h = 300, color_background = None, color_border = None, active = True)
 form_menu_B = FormMenuB(name = "form_menu_settings", master_surface = screen, x = 550, y = 300, w = 400, h = 300, color_background = None, color_border = None, active = False)
-form_menu_C = FormMenuC(name="form_menu_C",master_surface = screen, x=0,y=0,w=ANCHO_VENTANA,h=ALTO_VENTANA,color_background=(0,255,255),color_border=(255,0,255),active=False)
+form_menu_C = FormMenuC(name="form_menu_C",master_surface = screen, x=0,y=0,w=ANCHO_VENTANA,h=ALTO_VENTANA,color_background=(0,255,255),color_border=(255,0,255),active= False)
+form_menu_levels = FormMenuLevels(name = "form_menu_levels", master_surface = screen, x = 550, y = 300, w = 400, h = 300, color_background = None, color_border = None, active = True)
+
+
 
 form_game_L1 = FormGameLevel1(name="form_game_L1",master_surface = screen,x=0,y=0,w=ANCHO_VENTANA,h=ALTO_VENTANA,color_background=(0,255,255),color_border=(255,0,255),active=False)
 form_game_L2 = FormGameLevel2(name="form_game_L2",master_surface = screen,x=0,y=0,w=ANCHO_VENTANA,h=ALTO_VENTANA,color_background=(0,255,255),color_border=(255,0,255),active=False)
