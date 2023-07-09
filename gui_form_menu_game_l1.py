@@ -6,8 +6,7 @@ from gui_button import Button
 from gui_textbox import TextBox
 from gui_progressbar import ProgressBar
 from player import Player
-from enemigo import Enemy
-from enemy_murcielg import EnemyMurcielg
+from enemigos import EnemyZombie, EnemyMurcielago
 from plataforma import Plataform
 from background import Background
 from bullet import Bullet
@@ -30,13 +29,13 @@ class FormGameLevel1(Form):
         self.player_1 = Player(x=0,y=400,speed_walk=10,speed_run=12,gravity=14,jump_power=30,frame_rate_ms=100,move_rate_ms=50,jump_height=140,p_scale=0.2,interval_time_jump=300)
 
         self.enemy_list = []
-        self.enemy_list.append (Enemy(x=450,y=400,speed_walk=6,speed_run=5,gravity=14,jump_power=30,frame_rate_ms=150,move_rate_ms=50,jump_height=140,p_scale=0.08,interval_time_jump=300))
-        self.enemy_list.append (Enemy(x=1200,y=100,speed_walk=6,speed_run=5,gravity=14,jump_power=30,frame_rate_ms=150,move_rate_ms=50,jump_height=140,p_scale=0.08,interval_time_jump=300))
-        self.enemy_list.append (Enemy(x=800,y=100,speed_walk=6,speed_run=5,gravity=14,jump_power=30,frame_rate_ms=150,move_rate_ms=50,jump_height=140,p_scale=0.08,interval_time_jump=300))
+        self.enemy_list.append (EnemyZombie(x=450,y=400,speed_walk=6,speed_run=5,gravity=14,jump_power=30,frame_rate_ms=150,move_rate_ms=50,jump_height=140,p_scale=0.08,interval_time_jump=300))
+        self.enemy_list.append (EnemyZombie(x=1200,y=100,speed_walk=6,speed_run=5,gravity=14,jump_power=30,frame_rate_ms=150,move_rate_ms=50,jump_height=140,p_scale=0.08,interval_time_jump=300))
+        self.enemy_list.append (EnemyZombie(x=800,y=100,speed_walk=6,speed_run=5,gravity=14,jump_power=30,frame_rate_ms=150,move_rate_ms=50,jump_height=140,p_scale=0.08,interval_time_jump=300))
 
-        self.enemy_list.append (EnemyMurcielg(x=400,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
-        self.enemy_list.append (EnemyMurcielg(x=900,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
-        self.enemy_list.append (EnemyMurcielg(x=1200,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=800))
+        self.enemy_list.append (EnemyMurcielago(x=400,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
+        self.enemy_list.append (EnemyMurcielago(x=900,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
+        self.enemy_list.append (EnemyMurcielago(x=1200,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=800))
 
         #self.config_json = config_json
 

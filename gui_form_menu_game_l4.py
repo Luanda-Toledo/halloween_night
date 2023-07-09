@@ -6,12 +6,11 @@ from gui_button import Button
 from gui_textbox import TextBox
 from gui_progressbar import ProgressBar
 from player import Player
-from enemy_murcielg import EnemyMurcielg
+from enemigos import *
 from plataforma import Plataform
 from background import Background
 from bullet import Bullet
-from enemy_esqueletin import EnemyEsqueletin
-from enemy_princ import EnemyPrinc
+
 
 class FormGameLevel4(Form):
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active):
@@ -36,18 +35,18 @@ class FormGameLevel4(Form):
         self.enemy_list.append (EnemyEsqueletin(x=900,y=500,speed_walk=2,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=600,move_rate_ms=50,jump_height=140,p_scale=0.04,interval_time_jump=500))
         self.enemy_list.append (EnemyEsqueletin(x=200,y=400,speed_walk=1,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.04,interval_time_jump=1000))
         
-        self.enemy_list.append (EnemyMurcielg(x=400,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
-        self.enemy_list.append (EnemyMurcielg(x=900,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
-        self.enemy_list.append (EnemyMurcielg(x=100,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=800))
-        self.enemy_list.append (EnemyMurcielg(x=1000,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
-        self.enemy_list.append (EnemyMurcielg(x=1400,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=800))
-        self.enemy_list.append (EnemyMurcielg(x=250,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
-        self.enemy_list.append (EnemyMurcielg(x=700,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
-        self.enemy_list.append (EnemyMurcielg(x=1200,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=800))
-        self.enemy_list.append (EnemyMurcielg(x=1100,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
-        self.enemy_list.append (EnemyMurcielg(x=600,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=800))
+        self.enemy_list.append (EnemyMurcielago(x=400,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
+        self.enemy_list.append (EnemyMurcielago(x=900,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
+        self.enemy_list.append (EnemyMurcielago(x=100,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=800))
+        self.enemy_list.append (EnemyMurcielago(x=1000,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
+        self.enemy_list.append (EnemyMurcielago(x=1400,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=800))
+        self.enemy_list.append (EnemyMurcielago(x=250,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
+        self.enemy_list.append (EnemyMurcielago(x=700,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
+        self.enemy_list.append (EnemyMurcielago(x=1200,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=800))
+        self.enemy_list.append (EnemyMurcielago(x=1100,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
+        self.enemy_list.append (EnemyMurcielago(x=600,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=800))
 
-        self.enemy_list.append (EnemyPrinc(x=800,y=400,speed_walk=3,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=1000,move_rate_ms=10,jump_height=140,p_scale=0.04,interval_time_jump=500))
+        self.enemy_list.append (EnemyEqueco(x=800,y=400,speed_walk=3,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=1000,move_rate_ms=10,jump_height=140,p_scale=0.04,interval_time_jump=500))
         #self.config_json = config_json
 
         self.plataform_list = []

@@ -9,8 +9,7 @@ from player import Player
 from plataforma import Plataform
 from background import Background
 from bullet import Bullet
-from enemy_fantasmin import EnemyFantasmin
-from enemy_murcielg import EnemyMurcielg
+from enemigos import EnemyFantasmin
 
 class FormGameLevel3(Form):
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active):
