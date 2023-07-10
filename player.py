@@ -1,6 +1,7 @@
 import pygame
 from constantes import *
 from auxiliar import Auxiliar
+
 class Player:
     def __init__(self,x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale=1,interval_time_jump=100) -> None:
         '''
@@ -172,10 +173,20 @@ class Player:
                 #print(self.frame)
             else: 
                 self.frame = 0
+
+    def points(self,coin_list):
+        for coins in coin_list:
+            
+            if coins.rect.colliderect(self.rect):
+                # If the coin collides with ALGO, remove the rectangle from the coins list
+                coin_list.remove(coins)
+                self.score += 1  # Increment the score by 1
+                print(self.score)            
  
-    def update(self,delta_ms,plataform_list):
+    def update(self,delta_ms,plataform_list,list_coin):
         self.do_movement(delta_ms,plataform_list)
         self.do_animation(delta_ms)
+        self.points(list_coin)
         
     
     def draw(self,screen):
@@ -193,7 +204,7 @@ class Player:
 
         if(not keys[pygame.K_LEFT] and not keys[pygame.K_RIGHT] and not keys[pygame.K_SPACE]and not keys[pygame.K_a] and not keys[pygame.K_s]):
             #nada presionado
-            self.stay()
+            self.stay()  
         if(keys[pygame.K_LEFT] and not keys[pygame.K_RIGHT] and not keys[pygame.K_a] and not keys[pygame.K_s] ):
             self.walk(DIRECTION_L)
 

@@ -3,13 +3,13 @@ from pygame.locals import *
 from constantes import *
 from gui_form import Form
 from gui_button import Button
-from gui_textbox import TextBox
 from gui_progressbar import ProgressBar
 from player import Player
 from enemigos import EnemyZombie, EnemyMurcielago
 from plataforma import Plataform
 from background import Background
 from bullet import Bullet
+from botin import Coins
 
 class FormGameLevel1(Form):
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active):
@@ -88,15 +88,16 @@ class FormGameLevel1(Form):
 
         self.bullet_list = []
 
+        self.coin_list = []
+        self.coin_list.append (Coins(x=300 , y=422, w=1, h=1, type=1))
+
     def on_click_boton1(self, parametro):
         self.set_active(parametro)
 
     def on_click_shoot(self, parametro):
         for enemy_element in self.enemy_list:
             self.bullet_list.append(Bullet(enemy_element,enemy_element.rect.centerx,enemy_element.rect.centery,self.player_1.rect.centerx,self.player_1.rect.centery,20,path="recursos/images/gui/jungle/upgrade/a.png",frame_rate_ms=100,move_rate_ms=20,width=5,height=5))
-
-        
-
+ 
     def update(self, lista_eventos,keys,delta_ms):
         for aux_widget in self.widget_list:
             aux_widget.update(lista_eventos)
@@ -108,7 +109,7 @@ class FormGameLevel1(Form):
             enemy_element.update(delta_ms,self.plataform_list)
 
         self.player_1.events(delta_ms,keys)
-        self.player_1.update(delta_ms,self.plataform_list)
+        self.player_1.update(delta_ms,self.plataform_list, self.coin_list)
 
         self.pb_lives.value = self.player_1.lives 
 
@@ -130,3 +131,6 @@ class FormGameLevel1(Form):
 
         for bullet_element in self.bullet_list:
             bullet_element.draw(self.surface)
+
+        for coin in self.coin_list:
+            coin.draw(self.surface)

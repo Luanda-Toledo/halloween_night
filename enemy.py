@@ -7,10 +7,10 @@ class Enemy():
     def __init__(self, x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, 
                  p_scale = 1, interval_time_jump = 100) -> None:
    
-        self.walk_r = Auxiliar.getSurfaceFromSeparateFiles("recursos/nada.png", 0, 1, scale = 0.04)
-        self.walk_l = Auxiliar.getSurfaceFromSeparateFiles("recursos/nada.png", 0, 1, flip = True, scale = 0.04)
-        self.stay_r = Auxiliar.getSurfaceFromSeparateFiles("recursos/nada.png", 0, 1, scale = 0.04)
-        self.stay_l = Auxiliar.getSurfaceFromSeparateFiles("recursos/nada.png", 0, 1, flip = True, scale = 0.04)
+        self.walk_r = Auxiliar.getSurfaceFromSeparateFiles("recursos/nada.png", 0, 1, scale = 1)
+        self.walk_l = Auxiliar.getSurfaceFromSeparateFiles("recursos/nada.png", 0, 1, flip = True, scale = 1)
+        self.stay_r = Auxiliar.getSurfaceFromSeparateFiles("recursos/nada.png", 0, 1, scale = 1)
+        self.stay_l = Auxiliar.getSurfaceFromSeparateFiles("recursos/nada.png", 0, 1, flip = True, scale = 1)
 
         self.contador = 0
         self.frame = 0

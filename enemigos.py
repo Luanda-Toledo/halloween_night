@@ -10,10 +10,10 @@ class EnemyEsqueletin(Enemy):
         super().__init__(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, 
                  p_scale = 1, interval_time_jump = 100)
         
-        self.walk_r = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/esquelin/esqueletin.png", 0, 1, scale = p_scale)
-        self.walk_l = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/esquelin/esqueletin.png", 0, 1, flip = True, scale = p_scale)
-        self.stay_r = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/esquelin/esqueletin.png", 0, 1, scale = p_scale)
-        self.stay_l = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/esquelin/esqueletin.png", 0, 1, flip = True, scale = p_scale)
+        self.walk_r = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/esquelin/esqueletin.png", 0, 1, scale = 0.08)
+        self.walk_l = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/esquelin/esqueletin.png", 0, 1, flip = True, scale = 0.08)
+        self.stay_r = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/esquelin/esqueletin.png", 0, 1, scale = 0.08)
+        self.stay_l = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/esquelin/esqueletin.png", 0, 1, flip = True, scale = 0.08)
 
 
 class EnemyZombie(Enemy):
@@ -24,10 +24,10 @@ class EnemyZombie(Enemy):
         super().__init__(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, 
                  p_scale = 1, interval_time_jump = 100)
         
-        self.walk_r = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/Archive(1)/walk/go_5.png", 0, 1, scale = 0.08)
-        self.walk_l = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/Archive(1)/idle/idle_2.png", 0, 1, flip = True, scale = 0.08)
-        self.stay_r = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/Archive(1)/attack/hit_2.png", 0, 1, scale = 0.08)
-        self.stay_l = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/Archive(1)/attack/hit_7.png", 0, 1, flip = True, scale = 0.08)
+        self.walk_r = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/Archive(1)/walk/go_5.png", 0, 1, scale = 0.05)
+        self.walk_l = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/Archive(1)/idle/idle_2.png", 0, 1, flip = True, scale = 0.05)
+        self.stay_r = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/Archive(1)/attack/hit_2.png", 0, 1, scale = 0.05)
+        self.stay_l = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/Archive(1)/attack/hit_7.png", 0, 1, flip = True, scale = 0.05)
 
 
 class EnemyFantasmin(Enemy):
@@ -52,10 +52,10 @@ class EnemyMurcielago(Enemy):
         super().__init__(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, 
                  p_scale = 1, interval_time_jump = 100)
         
-        self.walk_r = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/murcielg.png", 1, 5, scale = 0.02)
-        self.walk_l = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/murcielg.png", 2, 5, flip = True, scale = 0.02)
-        self.stay_r = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/murcielg.png", 3, 5, scale = 0.02)
-        self.stay_l = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/murcielg.png", 3, 5, flip = True, scale = 0.02)
+        self.walk_r = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/murcielg.png", 1, 5, scale = 0.03)
+        self.walk_l = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/murcielg.png", 2, 5, flip = True, scale = 0.03)
+        self.stay_r = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/murcielg.png", 3, 5, scale = 0.03)
+        self.stay_l = Auxiliar.getSurfaceFromSeparateFiles("recursos/enemigos/murcielg.png", 3, 5, flip = True, scale = 0.03)
 
 
 class EnemyVampiro(Enemy):

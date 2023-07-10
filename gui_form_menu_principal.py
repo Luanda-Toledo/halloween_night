@@ -63,7 +63,6 @@ class FormMenuA(Form):
     
     def on_click_boton2(self, parametro):
         self.set_active(parametro)
-        pygame.mixer.music.stop()
 
     def update(self, lista_eventos,keys,delta_ms):
         for aux_widget in self.lista_widget:
