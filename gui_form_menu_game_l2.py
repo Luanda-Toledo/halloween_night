@@ -10,6 +10,7 @@ from plataforma import Plataform
 from background import Background
 from bullet import Bullet
 from enemigos import EnemyVampiro, EnemyMurcielago
+from botin import Coins
 
 class FormGameLevel2(Form):
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active):
@@ -119,6 +120,24 @@ class FormGameLevel2(Form):
 
         self.bullet_list = []
 
+        self.coin_list = []
+        self.coin_list.append (Coins(x=920,y=350,w=1,h=1,type=1)) 
+        self.coin_list.append (Coins(x=1220,y=50,w=1,h=1,type=2)) 
+        self.coin_list.append (Coins(x=50,y=270,w=1,h=1,type=2)) 
+        self.coin_list.append (Coins(x=400,y=270,w=1,h=1,type=2)) 
+        self.coin_list.append (Coins(x=880,y=60,w=1,h=1,type=4)) 
+        self.coin_list.append (Coins(x=1420,y=120,w=1,h=1,type=3)) 
+        self.coin_list.append (Coins(x=130,y=520,w=1,h=1,type=5))
+        self.coin_list.append (Coins(x=650,y=310,w=1,h=1,type=1))
+        self.coin_list.append (Coins(x=1200,y=370,w=1,h=1,type=2))
+        self.coin_list.append (Coins(x=1300,y=370,w=1,h=1,type=4)) 
+        self.coin_list.append (Coins(x=740,y=170,w=1,h=1,type=3))
+        self.coin_list.append (Coins(x=240,y=120,w=1,h=1,type=5))
+        self.coin_list.append (Coins(x=1050,y=560,w=1,h=1,type=3))
+        self.coin_list.append (Coins(x=1100,y=170,w=1,h=1,type=5))
+        self.coin_list.append (Coins(x=500,y=470,w=1,h=1,type=3))
+        self.coin_list.append (Coins(x=800,y=510,w=1,h=1,type=5))
+
     def on_click_boton1(self, parametro):
         self.set_active(parametro)
 
@@ -139,7 +158,7 @@ class FormGameLevel2(Form):
             enemy_element.update(delta_ms,self.plataform_list)
 
         self.player_1.events(delta_ms,keys)
-        self.player_1.update(delta_ms,self.plataform_list)
+        self.player_1.update(delta_ms,self.plataform_list, self.coin_list)
 
         self.pb_lives.value = self.player_1.lives 
 
@@ -153,6 +172,9 @@ class FormGameLevel2(Form):
 
         for plataforma in self.plataform_list:
             plataforma.draw(self.surface)
+
+        for coin in self.coin_list:
+            coin.draw(self.surface)
 
         for enemy_element in self.enemy_list:
             enemy_element.draw(self.surface)

@@ -10,6 +10,7 @@ from enemigos import *
 from plataforma import Plataform
 from background import Background
 from bullet import Bullet
+from botin import Coins
 
 
 class FormGameLevel4(Form):
@@ -104,6 +105,28 @@ class FormGameLevel4(Form):
 
         self.bullet_list = []
 
+        self.coin_list = []
+        self.coin_list.append (Coins(x=1430,y=300,w=1,h=1,type=2))
+        self.coin_list.append (Coins(x=100,y=480,w=1,h=1,type=3))
+        self.coin_list.append (Coins(x=600,y=300,w=1,h=1,type=5))
+        self.coin_list.append (Coins(x=500,y=300,w=1,h=1,type=1))
+        self.coin_list.append (Coins(x=800,y=250,w=1,h=1,type=1))
+        self.coin_list.append (Coins(x=930,y=80,w=1,h=1,type=2))
+        self.coin_list.append (Coins(x=1220,y=280,w=1,h=1,type=3))
+        self.coin_list.append (Coins(x=1050,y=350,w=1,h=1,type=4))
+        self.coin_list.append (Coins(x=350,y=550,w=1,h=1,type=5))
+        self.coin_list.append (Coins(x=830,y=430,w=1,h=1,type=1))
+        self.coin_list.append (Coins(x=100,y=130,w=1,h=1,type=2))
+        self.coin_list.append (Coins(x=350,y=80,w=1,h=1,type=3))
+        self.coin_list.append (Coins(x=1430,y=70,w=1,h=1,type=5)) 
+        self.coin_list.append (Coins(x=400,y=670,w=1,h=1,type=3))
+        self.coin_list.append (Coins(x=800,y=670,w=1,h=1,type=4))
+        self.coin_list.append (Coins(x=1200,y=670,w=1,h=1,type=5))
+        self.coin_list.append (Coins(x=1130,y=60,w=1,h=1,type=1))
+        self.coin_list.append (Coins(x=550,y=120,w=1,h=1,type=3))
+        self.coin_list.append (Coins(x=1350,y=470,w=1,h=1,type=4))
+        self.coin_list.append (Coins(x=100,y=320,w=1,h=1,type=5))
+
     def on_click_boton1(self, parametro):
         self.set_active(parametro)
 
@@ -124,7 +147,7 @@ class FormGameLevel4(Form):
             enemy_element.update(delta_ms,self.plataform_list)
 
         self.player_1.events(delta_ms,keys)
-        self.player_1.update(delta_ms,self.plataform_list)
+        self.player_1.update(delta_ms,self.plataform_list,self.coin_list)
 
         self.pb_lives.value = self.player_1.lives 
 
@@ -138,6 +161,9 @@ class FormGameLevel4(Form):
 
         for plataforma in self.plataform_list:
             plataforma.draw(self.surface)
+
+        for coin in self.coin_list:
+            coin.draw(self.surface)
 
         for enemy_element in self.enemy_list:
             enemy_element.draw(self.surface)

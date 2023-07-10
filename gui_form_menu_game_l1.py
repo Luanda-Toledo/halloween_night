@@ -89,7 +89,20 @@ class FormGameLevel1(Form):
         self.bullet_list = []
 
         self.coin_list = []
-        self.coin_list.append (Coins(x=300 , y=422, w=1, h=1, type=1))
+        self.coin_list.append (Coins(x=1430,y=300,w=1,h=1,type=1))
+        self.coin_list.append (Coins(x=100,y=480,w=1,h=1,type=2))
+        self.coin_list.append (Coins(x=600,y=300,w=1,h=1,type=2))
+        self.coin_list.append (Coins(x=500,y=300,w=1,h=1,type=2))
+        self.coin_list.append (Coins(x=900,y=80,w=1,h=1,type=4))
+        self.coin_list.append (Coins(x=930,y=80,w=1,h=1,type=3))
+        self.coin_list.append (Coins(x=1220,y=280,w=1,h=1,type=5))
+        self.coin_list.append (Coins(x=1050,y=350,w=1,h=1,type=1))
+        self.coin_list.append (Coins(x=350,y=550,w=1,h=1,type=2))
+        self.coin_list.append (Coins(x=830,y=430,w=1,h=1,type=4))
+        self.coin_list.append (Coins(x=100,y=130,w=1,h=1,type=4))
+        self.coin_list.append (Coins(x=350,y=80,w=1,h=1,type=3))
+        self.coin_list.append (Coins(x=1430,y=70,w=1,h=1,type=5))
+
 
     def on_click_boton1(self, parametro):
         self.set_active(parametro)
@@ -124,6 +137,9 @@ class FormGameLevel1(Form):
         for plataforma in self.plataform_list:
             plataforma.draw(self.surface)
 
+        for coin in self.coin_list:
+            coin.draw(self.surface)
+
         for enemy_element in self.enemy_list:
             enemy_element.draw(self.surface)
         
@@ -131,6 +147,3 @@ class FormGameLevel1(Form):
 
         for bullet_element in self.bullet_list:
             bullet_element.draw(self.surface)
-
-        for coin in self.coin_list:
-            coin.draw(self.surface)
