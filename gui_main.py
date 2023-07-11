@@ -1,6 +1,7 @@
 import pygame
 from pygame.locals import *
 import sys
+import pygame.mixer
 from constantes import *
 from gui_form import Form
 from gui_form_menu_principal import FormMenuA
@@ -12,11 +13,21 @@ from gui_form_menu_game_l3 import FormGameLevel3
 from gui_form_menu_game_l4 import FormGameLevel4
 from gui_form_menu_levels import FormMenuLevels
 
+
 flags = DOUBLEBUF 
 screen = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA), flags, 16)
 pygame.display.set_caption("HALLOWEEN NIGTH")
 pygame.init()
 clock = pygame.time.Clock()
+
+# Inicializar el motor de sonido
+pygame.mixer.init()
+
+# Cargar el sonido de fondo
+pygame.mixer.music.load("soundtracks/creepy-music-box-halloween-music-horror-scary-spooky-dark-ambient-118577.mp3")
+
+# Iniciar la reproducción del sonido 
+pygame.mixer.music.play(-1) 
 
 form_menu_A = FormMenuA(name = "form_menu_principal", master_surface = screen, x = 550, y = 300, w = 400, h = 300, color_background = None, color_border = None, active = True)
 form_menu_B = FormMenuB(name = "form_menu_settings", master_surface = screen, x = 550, y = 300, w = 400, h = 300, color_background = None, color_border = None, active = False)
