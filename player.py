@@ -180,8 +180,7 @@ class Player:
             if coins.rect.colliderect(self.rect):
                 # If the coin collides with ALGO, remove the rectangle from the coins list
                 coin_list.remove(coins)
-                self.score += 1  # Increment the score by 1
-                print(self.score)            
+                self.score += 1  # Increment the score by 1           
  
     def update(self,delta_ms,plataform_list,list_coin):
         self.do_movement(delta_ms,plataform_list)

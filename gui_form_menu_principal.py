@@ -24,7 +24,7 @@ class FormMenuA(Form):
         fuente = pygame.font.Font(None, 50)
         texto = fuente.render("C a r g a n d o . . .", True, (0, 0, 0))
         texto_rect = texto.get_rect()
-        texto_rect.center = (400, 720)
+        texto_rect.center = (400, 620)
 
 
         tiempo_inicial = pygame.time.get_ticks()

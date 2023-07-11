@@ -3,26 +3,25 @@ from pygame.locals import *
 from constantes import *
 from gui_form import Form
 from gui_button import Button
-from gui_textbox import TextBox
-from gui_progressbar import ProgressBar
 from player import Player
 from plataforma import Plataform
 from background import Background
 from bullet import Bullet
 from enemigos import EnemyVampiro, EnemyMurcielago
 from botin import Coins
+import time
 
 class FormGameLevel2(Form):
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active):
         super().__init__(name,master_surface,x,y,w,h,color_background,color_border,active)
 
         # --- GUI WIDGET --- 
-        self.boton1 = Button(master=self,x=0,y=0,w=140,h=50,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_boton1,on_click_param="form_menu_principal",text="BACK",font="Verdana",font_size=30,font_color=C_WHITE)
-        self.boton2 = Button(master=self,x=200,y=0,w=140,h=50,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_boton1,on_click_param="form_menu_settings",text="PAUSE",font="Verdana",font_size=30,font_color=C_WHITE)
-        self.boton_shoot = Button(master=self,x=400,y=0,w=140,h=50,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_shoot,on_click_param="form_menu_settings",text="SHOOT",font="Verdana",font_size=30,font_color=C_WHITE)
+        #self.boton1 = Button(master=self,x=0,y=0,w=140,h=50,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_boton1,on_click_param="form_menu_principal",text="BACK",font="Verdana",font_size=30,font_color=C_WHITE)
+        self.boton2 = Button(master=self,x=50,y=0,w=140,h=50,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_boton2,on_click_param="form_menu_levels",text="PAUSE",font="Verdana",font_size=30,font_color=C_WHITE)
+        #self.boton_shoot = Button(master=self,x=400,y=0,w=140,h=50,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_shoot,on_click_param="form_menu_settings",text="SHOOT",font="Verdana",font_size=30,font_color=C_WHITE)
        
-        self.pb_lives = ProgressBar(master=self,x=500,y=50,w=240,h=50,color_background=None,color_border=None,image_background="recursos/images/gui/set_gui_01/Comic/Bars/Bar_Background03.png",image_progress="recursos/images/gui/jungle/upgrade/b.png",value = 5, value_max=5)
-        self.widget_list = [self.boton1,self.boton2,self.pb_lives,self.boton_shoot]
+        #self.pb_lives = ProgressBar(master=self,x=500,y=50,w=240,h=50,color_background=None,color_border=None,image_background="recursos/images/gui/set_gui_01/Comic/Bars/Bar_Background03.png",image_progress="recursos/images/gui/jungle/upgrade/b.png",value = 5, value_max=5)
+        self.widget_list = [self.boton2]
 
         # --- GAME ELEMNTS --- 
         self.static_background = Background(x=0,y=0,width=w,height=h,path="recursos/fondo/2_game_background/2_game_background.png")
@@ -31,7 +30,7 @@ class FormGameLevel2(Form):
 
         self.enemy_list = []
         self.enemy_list.append (EnemyVampiro(x=1250,y=300,speed_walk=2,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=150,move_rate_ms=50,jump_height=140,p_scale=0.08,interval_time_jump=300))
-        self.enemy_list.append (EnemyVampiro(x=1100,y=100,speed_walk=2,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=300,move_rate_ms=50,jump_height=140,p_scale=0.08,interval_time_jump=500))
+        self.enemy_list.append (EnemyVampiro(x=900,y=100,speed_walk=2,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=300,move_rate_ms=50,jump_height=140,p_scale=0.08,interval_time_jump=500))
         self.enemy_list.append (EnemyVampiro(x=700,y=200,speed_walk=2,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.08,interval_time_jump=100))
         self.enemy_list.append (EnemyVampiro(x=200,y=400,speed_walk=2,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=600,move_rate_ms=50,jump_height=140,p_scale=0.08,interval_time_jump=50))
         self.enemy_list.append (EnemyVampiro(x=450,y=400,speed_walk=1,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.08,interval_time_jump=100))
@@ -138,29 +137,56 @@ class FormGameLevel2(Form):
         self.coin_list.append (Coins(x=500,y=470,w=1,h=1,type=3))
         self.coin_list.append (Coins(x=800,y=510,w=1,h=1,type=5))
 
-    def on_click_boton1(self, parametro):
+        self.is_paused = False
+        self.start_time = 0
+        self.elapsed_time = 0
+        self.player_moved = False
+
+        self.clock_background = pygame.image.load("recursos/menu/button_two.png").convert_alpha()
+        self.clock_background = pygame.transform.scale(self.clock_background, (100, 50))
+
+        self.score_image = pygame.image.load("recursos/menu/button_two.png")
+
+
+    def on_click_boton2(self, parametro):
         self.set_active(parametro)
+        self.is_paused = not self.is_paused
+        if self.is_paused:
+            pygame.mixer.music.stop()
+        else:
+            if not self.player_moved:
+                self.player_moved = True
+                self.start_time = time.time()
+                pygame.mixer.music.load("soundtracks/purgatory.mp3")
+                pygame.mixer.music.play(-1)
+            else:
+                self.elapsed_time += time.time() - self.start_time
+                self.start_time = time.time()
 
-    def on_click_shoot(self, parametro):
-        for enemy_element in self.enemy_list:
-            self.bullet_list.append(Bullet(enemy_element,enemy_element.rect.centerx,enemy_element.rect.centery,self.player_1.rect.centerx,self.player_1.rect.centery,20,path="recursos/images/gui/jungle/upgrade/a.png",frame_rate_ms=100,move_rate_ms=20,width=5,height=5))
-
-        
-
-    def update(self, lista_eventos,keys,delta_ms):
+    #def on_click_shoot(self, parametro):
+    #    for enemy_element in self.enemy_list:
+    #        self.bullet_list.append(Bullet(enemy_element,enemy_element.rect.centerx,enemy_element.rect.centery,self.player_1.rect.centerx,self.player_1.rect.centery,20,path="recursos/images/gui/jungle/upgrade/a.png",frame_rate_ms=100,move_rate_ms=20,width=5,height=5))
+ 
+    def update(self, lista_eventos, keys, delta_ms):
+            
         for aux_widget in self.widget_list:
             aux_widget.update(lista_eventos)
 
         for bullet_element in self.bullet_list:
-            bullet_element.update(delta_ms,self.plataform_list,self.enemy_list,self.player_1)
+            bullet_element.update(delta_ms, self.plataform_list, self.enemy_list, self.player_1)
 
         for enemy_element in self.enemy_list:
-            enemy_element.update(delta_ms,self.plataform_list)
+            enemy_element.update(delta_ms, self.plataform_list)
 
-        self.player_1.events(delta_ms,keys)
-        self.player_1.update(delta_ms,self.plataform_list, self.coin_list)
+        if not self.player_moved:
+            if keys[K_LEFT] or keys[K_RIGHT]:
+                self.player_moved = True
+                self.start_time = time.time()
+                pygame.mixer.music.load("soundtracks/purgatory.mp3")
+                pygame.mixer.music.play(-1)
 
-        self.pb_lives.value = self.player_1.lives 
+        self.player_1.events(delta_ms, keys)
+        self.player_1.update(delta_ms, self.plataform_list, self.coin_list)
 
 
     def draw(self): 
@@ -183,3 +209,19 @@ class FormGameLevel2(Form):
 
         for bullet_element in self.bullet_list:
             bullet_element.draw(self.surface)
+
+        self.surface.blit(self.score_image, (80, 10))
+        score_font = pygame.font.Font(None, 36)  # Fuente para el texto del score
+        score_text = score_font.render("Score: " + str(self.player_1.score * 100), True, (255, 255, 255))  # Renderiza el texto del score
+        self.surface.blit(score_text, (170, 60))
+
+        # Draw mini clock
+        if not self.is_paused and self.player_moved:
+            current_time = int(time.time() - self.start_time + self.elapsed_time)
+            minutes = current_time // 60
+            seconds = current_time % 60
+            clock_rect = self.clock_background.get_rect(topright=(self.master_surface.get_width() - 10, 10))
+            self.surface.blit(self.clock_background, clock_rect)
+            clock_text = pygame.font.SysFont("Verdana", 24).render(f"{minutes:02d}:{seconds:02d}", True, (255, 255, 255))
+            clock_text_rect = clock_text.get_rect(center=clock_rect.center)
+            self.surface.blit(clock_text, clock_text_rect)
