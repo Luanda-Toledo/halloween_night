@@ -202,9 +202,11 @@ class FormGameLevel1(Form):
 
         if self.player_1.lives <= 0:
             self.surface.blit(self.game_over_image, self.game_over_image_rect)
+            self.is_paused = True
 
         if len(self.coin_list) == 0 and len(self.enemy_list) == 0:
             self.surface.blit(self.winner_image, self.winner_image_rect)
+            self.is_paused = True
 
         #SCORE
         self.surface.blit(self.score_image, (170, 0))

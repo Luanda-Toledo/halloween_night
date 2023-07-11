@@ -3,11 +3,12 @@ from pygame.locals import *
 from constantes import *
 from gui_form import Form
 from gui_button import Button
+from gui_progressbar import ProgressBar
 from player import Player
+from enemigos import *
 from plataforma import Plataform
 from background import Background
 from bullet import Bullet
-from enemigos import EnemyVampiro, EnemyMurcielago
 from botin import Coins
 import time
 
@@ -17,14 +18,14 @@ class FormGameLevel2(Form):
 
         # --- GUI WIDGET --- 
         #self.boton1 = Button(master=self,x=0,y=0,w=140,h=50,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_boton1,on_click_param="form_menu_principal",text="BACK",font="Verdana",font_size=30,font_color=C_WHITE)
-        self.boton2 = Button(master=self,x=50,y=0,w=140,h=50,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_boton2,on_click_param="form_menu_levels",text="PAUSE",font="Verdana",font_size=30,font_color=C_WHITE)
+        self.boton2 = Button(master=self,x=5,y=0,w=160,h=60,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_boton2,on_click_param="form_menu_levels",text="PAUSE",font="Verdana",font_size=30,font_color=C_WHITE)
         #self.boton_shoot = Button(master=self,x=400,y=0,w=140,h=50,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_shoot,on_click_param="form_menu_settings",text="SHOOT",font="Verdana",font_size=30,font_color=C_WHITE)
        
-        #self.pb_lives = ProgressBar(master=self,x=500,y=50,w=240,h=50,color_background=None,color_border=None,image_background="recursos/images/gui/set_gui_01/Comic/Bars/Bar_Background03.png",image_progress="recursos/images/gui/jungle/upgrade/b.png",value = 5, value_max=5)
-        self.widget_list = [self.boton2]
+        self.pb_lives = ProgressBar(master=self,x=450,y=10,w=200,h=40,color_background=None,color_border=None,image_background="recursos/nada.png",image_progress="recursos/images/gui/set_gui_01/Data/Elements/heart.png",value = 5, value_max=5)
+        self.widget_list = [self.boton2, self.pb_lives]
 
         # --- GAME ELEMNTS --- 
-        self.static_background = Background(x=0,y=0,width=w,height=h,path="recursos/fondo/2_game_background/2_game_background.png")
+        self.static_background = Background(x=0,y=0,width=w,height=h,path="recursos/fondo/1_game_background/1_game_background.png")
 
         self.player_1 = Player(x=0,y=400,speed_walk=10,speed_run=12,gravity=14,jump_power=30,frame_rate_ms=100,move_rate_ms=50,jump_height=140,p_scale=0.2,interval_time_jump=300)
 
@@ -116,6 +117,7 @@ class FormGameLevel2(Form):
 
         self.plataform_list.append(Plataform(x=1200,y=80,width=100,height=50,type=1))
         self.plataform_list.append(Plataform(x=1250,y=80,width=100,height=50,type=1))
+        
 
         self.bullet_list = []
 
@@ -137,15 +139,31 @@ class FormGameLevel2(Form):
         self.coin_list.append (Coins(x=500,y=470,w=1,h=1,type=3))
         self.coin_list.append (Coins(x=800,y=510,w=1,h=1,type=5))
 
+        #PAUSA - TIMER
         self.is_paused = False
         self.start_time = 0
         self.elapsed_time = 0
         self.player_moved = False
 
+        #IMG RELOJ
         self.clock_background = pygame.image.load("recursos/menu/button_two.png").convert_alpha()
-        self.clock_background = pygame.transform.scale(self.clock_background, (100, 50))
+        self.clock_background = pygame.transform.scale(self.clock_background, (120, 60))
 
-        self.score_image = pygame.image.load("recursos/menu/button_two.png")
+        # IMG SCORE
+        self.score_image = pygame.image.load("recursos/menu/button_two.png").convert_alpha()
+        self.score_image = pygame.transform.scale(self.score_image, (260, 60))
+
+        # IMG LIVE
+        self.heart_image = pygame.image.load("recursos/images/gui/set_gui_01/Data/Elements/heart.png").convert_alpha()
+        self.heart_image = pygame.transform.scale(self.heart_image, (40, 40))
+
+        # IMG GAME OVER
+        self.game_over_image = pygame.image.load("recursos/images/gui/set_gui_01/Comic/Text/LOSER.png").convert_alpha()
+        self.game_over_image_rect = self.game_over_image.get_rect(center=(self.master_surface.get_width() // 2, self.master_surface.get_height() // 2))
+
+        # IMG WINNER
+        self.winner_image = pygame.image.load("recursos/images/gui/set_gui_01/Comic/Text/VICTORY.png").convert_alpha()
+        self.winner_image_rect = self.winner_image.get_rect(center=(self.master_surface.get_width() // 2, self.master_surface.get_height() // 2))
 
 
     def on_click_boton2(self, parametro):
@@ -177,6 +195,13 @@ class FormGameLevel2(Form):
 
         for enemy_element in self.enemy_list:
             enemy_element.update(delta_ms, self.plataform_list)
+
+            rect_enemy = enemy_element.rect
+            if self.player_1.rect.colliderect(rect_enemy) and self.player_1.rect.top < rect_enemy.bottom:
+                self.enemy_list.remove(enemy_element)
+                self.player_1.score += 10
+        
+        self.pb_lives.value = self.player_1.lives
 
         if not self.player_moved:
             if keys[K_LEFT] or keys[K_RIGHT]:
@@ -210,18 +235,27 @@ class FormGameLevel2(Form):
         for bullet_element in self.bullet_list:
             bullet_element.draw(self.surface)
 
-        self.surface.blit(self.score_image, (80, 10))
-        score_font = pygame.font.Font(None, 36)  # Fuente para el texto del score
-        score_text = score_font.render("Score: " + str(self.player_1.score * 100), True, (255, 255, 255))  # Renderiza el texto del score
-        self.surface.blit(score_text, (170, 60))
+        if self.player_1.lives <= 0:
+            self.surface.blit(self.game_over_image, self.game_over_image_rect)
+            self.is_paused = True
+
+        if len(self.coin_list) == 0 and len(self.enemy_list) == 0:
+            self.surface.blit(self.winner_image, self.winner_image_rect)
+            self.is_paused = True
+
+        #SCORE
+        self.surface.blit(self.score_image, (170, 0))
+        score_font = pygame.font.SysFont("Verdana", 30)  # Fuente para el texto del score
+        score_text = score_font.render("SCORE: " + str(self.player_1.score * 100), True, (255, 255, 255))  # Renderiza el texto del score
+        self.surface.blit(score_text, (200, 15))
 
         # Draw mini clock
         if not self.is_paused and self.player_moved:
             current_time = int(time.time() - self.start_time + self.elapsed_time)
             minutes = current_time // 60
             seconds = current_time % 60
-            clock_rect = self.clock_background.get_rect(topright=(self.master_surface.get_width() - 10, 10))
+            clock_rect = self.clock_background.get_rect(topright=(self.master_surface.get_width() - 20, 5))
             self.surface.blit(self.clock_background, clock_rect)
-            clock_text = pygame.font.SysFont("Verdana", 24).render(f"{minutes:02d}:{seconds:02d}", True, (255, 255, 255))
+            clock_text = pygame.font.SysFont("Verdana", 30).render(f"{minutes:02d}:{seconds:02d}", True, (255, 255, 255))
             clock_text_rect = clock_text.get_rect(center=clock_rect.center)
             self.surface.blit(clock_text, clock_text_rect)
