@@ -12,7 +12,7 @@ from bullet import Bullet
 from botin import Coins
 import time
 
-class FormGameLevel2(Form):
+class FormGameLevel4(Form):
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active):
         super().__init__(name,master_surface,x,y,w,h,color_background,color_border,active)
 
