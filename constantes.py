@@ -28,3 +28,7 @@ M_STATE_HOVER = 1
 M_STATE_CLICK = 3
 M_BRIGHT_HOVER = (32,32,32)
 M_BRIGHT_CLICK = (32,32,32)
+
+heart_spacing = 10  # Espacio entre cada imagen de corazón
+heart_x = 700
+heart_y = 10  # Altura de la parte superior central de la pantalla donde se mostrarán los corazones

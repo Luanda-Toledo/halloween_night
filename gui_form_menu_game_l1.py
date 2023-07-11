@@ -21,8 +21,8 @@ class FormGameLevel1(Form):
         self.boton2 = Button(master=self,x=5,y=0,w=160,h=60,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_boton2,on_click_param="form_menu_levels",text="PAUSE",font="Verdana",font_size=30,font_color=C_WHITE)
         #self.boton_shoot = Button(master=self,x=400,y=0,w=140,h=50,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_shoot,on_click_param="form_menu_settings",text="SHOOT",font="Verdana",font_size=30,font_color=C_WHITE)
        
-        #self.pb_lives = ProgressBar(master=self,x=500,y=50,w=240,h=50,color_background=None,color_border=None,image_background="recursos/images/gui/set_gui_01/Comic/Bars/Bar_Background03.png",image_progress="recursos/images/gui/jungle/upgrade/b.png",value = 5, value_max=5)
-        self.widget_list = [self.boton2]
+        self.pb_lives = ProgressBar(master=self,x=450,y=10,w=200,h=40,color_background=None,color_border=None,image_background="recursos/nada.png",image_progress="recursos/images/gui/set_gui_01/Data/Elements/heart.png",value = 5, value_max=5)
+        self.widget_list = [self.boton2, self.pb_lives]
 
         # --- GAME ELEMNTS --- 
         self.static_background = Background(x=0,y=0,width=w,height=h,path="recursos/fondo/1_game_background/1_game_background.png")
@@ -118,6 +118,18 @@ class FormGameLevel1(Form):
         self.score_image = pygame.image.load("recursos/menu/button_two.png").convert_alpha()
         self.score_image = pygame.transform.scale(self.score_image, (260, 60))
 
+        # IMG LIVE
+        self.heart_image = pygame.image.load("recursos/images/gui/set_gui_01/Data/Elements/heart.png").convert_alpha()
+        self.heart_image = pygame.transform.scale(self.heart_image, (40, 40))
+
+        # IMG GAME OVER
+        self.game_over_image = pygame.image.load("recursos/images/gui/set_gui_01/Comic/Text/LOSER.png").convert_alpha()
+        self.game_over_image_rect = self.game_over_image.get_rect(center=(self.master_surface.get_width() // 2, self.master_surface.get_height() // 2))
+
+        # IMG WINNER
+        self.winner_image = pygame.image.load("recursos/images/gui/set_gui_01/Comic/Text/VICTORY.png").convert_alpha()
+        self.winner_image_rect = self.winner_image.get_rect(center=(self.master_surface.get_width() // 2, self.master_surface.get_height() // 2))
+
 
     def on_click_boton2(self, parametro):
         self.set_active(parametro)
@@ -148,6 +160,13 @@ class FormGameLevel1(Form):
 
         for enemy_element in self.enemy_list:
             enemy_element.update(delta_ms, self.plataform_list)
+
+            rect_enemy = enemy_element.rect
+            if self.player_1.rect.colliderect(rect_enemy) and self.player_1.rect.top < rect_enemy.bottom:
+                self.enemy_list.remove(enemy_element)
+                self.player_1.score += 10
+        
+        self.pb_lives.value = self.player_1.lives
 
         if not self.player_moved:
             if keys[K_LEFT] or keys[K_RIGHT]:
@@ -181,6 +200,12 @@ class FormGameLevel1(Form):
         for bullet_element in self.bullet_list:
             bullet_element.draw(self.surface)
 
+        if self.player_1.lives <= 0:
+            self.surface.blit(self.game_over_image, self.game_over_image_rect)
+
+        if len(self.coin_list) == 0 and len(self.enemy_list) == 0:
+            self.surface.blit(self.winner_image, self.winner_image_rect)
+
         #SCORE
         self.surface.blit(self.score_image, (170, 0))
         score_font = pygame.font.SysFont("Verdana", 30)  # Fuente para el texto del score
@@ -197,3 +222,5 @@ class FormGameLevel1(Form):
             clock_text = pygame.font.SysFont("Verdana", 30).render(f"{minutes:02d}:{seconds:02d}", True, (255, 255, 255))
             clock_text_rect = clock_text.get_rect(center=clock_rect.center)
             self.surface.blit(clock_text, clock_text_rect)
+
+    
