@@ -29,103 +29,33 @@ class FormGameLevel4(Form):
 
         self.player_1 = Player(x=0,y=400,speed_walk=10,speed_run=12,gravity=14,jump_power=30,frame_rate_ms=100,move_rate_ms=50,jump_height=140,p_scale=0.2,interval_time_jump=300)
 
-        self.enemy_list = []
-        self.enemy_list.append (EnemyEsqueletin(x=1300,y=300,speed_walk=2,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=150,move_rate_ms=50,jump_height=140,p_scale=0.04,interval_time_jump=1000))
-        self.enemy_list.append (EnemyEsqueletin(x=1100,y=500,speed_walk=2,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=300,move_rate_ms=50,jump_height=140,p_scale=0.04,interval_time_jump=500))
-        self.enemy_list.append (EnemyEsqueletin(x=900,y=500,speed_walk=2,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=600,move_rate_ms=50,jump_height=140,p_scale=0.04,interval_time_jump=500))
-        self.enemy_list.append (EnemyEsqueletin(x=200,y=400,speed_walk=1,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.04,interval_time_jump=1000))
-        
-        self.enemy_list.append (EnemyMurcielago(x=400,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
-        self.enemy_list.append (EnemyMurcielago(x=900,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
-        self.enemy_list.append (EnemyMurcielago(x=100,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=800))
-        self.enemy_list.append (EnemyMurcielago(x=1000,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
-        self.enemy_list.append (EnemyMurcielago(x=1400,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=800))
-        self.enemy_list.append (EnemyMurcielago(x=250,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
-        self.enemy_list.append (EnemyMurcielago(x=700,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
-        self.enemy_list.append (EnemyMurcielago(x=1200,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=800))
-        self.enemy_list.append (EnemyMurcielago(x=1100,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
-        self.enemy_list.append (EnemyMurcielago(x=600,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=800))
+        self.datos_extraidos = Auxiliar.leer_json("config.json")
 
-        self.enemy_list.append (EnemyEqueco(x=800,y=400,speed_walk=3,speed_run=2,gravity=10,jump_power=30,frame_rate_ms=1000,move_rate_ms=10,jump_height=140,p_scale=0.04,interval_time_jump=500))
-        #self.config_json = config_json
+        self.enemy_list = []
+        for esqueletin in self.datos_extraidos["niveles"]["nivel_4"]["config_esqueletin"]:
+            x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump= esqueletin
+            self.enemy_list.append(EnemyEsqueletin(x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump))
+
+        for murcielago in self.datos_extraidos["niveles"]["nivel_4"]["config_murcielago"]:
+            x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump= murcielago
+            self.enemy_list.append(EnemyMurcielago(x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump))
+
+        for equeco in self.datos_extraidos["niveles"]["nivel_4"]["config_equeco"]:
+            x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump= equeco
+            self.enemy_list.append(EnemyEqueco(x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump))
+
 
         self.plataform_list = []
-        self.plataform_list.append(Plataform(x=200,y=400,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=250,y=400,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=450,y=500,width=100,height=50,type=1))
-        self.plataform_list.append(Plataform(x=500,y=500,width=100,height=50,type=2))
-        self.plataform_list.append(Plataform(x=200,y=200,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=350,y=280,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=300,y=580,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=350,y=580,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=900,y=580,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=950,y=580,width=100,height=50,type=0))
-
-        self.plataform_list.append(Plataform(x=450,y=350,width=100,height=50,type=1))
-        self.plataform_list.append(Plataform(x=500,y=350,width=100,height=50,type=2))
-        self.plataform_list.append(Plataform(x=550,y=350,width=100,height=50,type=2))
-        self.plataform_list.append(Plataform(x=600,y=350,width=100,height=50,type=2))
-
-        self.plataform_list.append(Plataform(x=0,y=350,width=100,height=50,type=1))
-        self.plataform_list.append(Plataform(x=50,y=350,width=100,height=50,type=2))
-        self.plataform_list.append(Plataform(x=100,y=350,width=100,height=50,type=2))
-        self.plataform_list.append(Plataform(x=150,y=350,width=100,height=50,type=2))
-
-        self.plataform_list.append(Plataform(x=0,y=550,width=100,height=50,type=2))
-        self.plataform_list.append(Plataform(x=300,y=100,width=100,height=50,type=2))
-        self.plataform_list.append(Plataform(x=1400,y=100,width=100,height=50,type=2))    
-        self.plataform_list.append(Plataform(x=600,y=430,width=100,height=50,type=12))
-        self.plataform_list.append(Plataform(x=650,y=430,width=100,height=50,type=14))
-        self.plataform_list.append(Plataform(x=750,y=280,width=100,height=50,type=12))
-        self.plataform_list.append(Plataform(x=800,y=280,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=850,y=280,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=800,y=460,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=850,y=100,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=900,y=100,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=850,y=100,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=900,y=100,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=50,y=500,width=100,height=50,type=14))
-        self.plataform_list.append(Plataform(x=50,y=160,width=100,height=50,type=14))
-        self.plataform_list.append(Plataform(x=500,y=160,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=550,y=160,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=1100,y=100,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=1300,y=500,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=1300,y=160,width=100,height=50,type=14))
-        self.plataform_list.append(Plataform(x=1350,y=160,width=100,height=50,type=14))
-        self.plataform_list.append(Plataform(x=1400,y=350,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=1200,y=310,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=1250,y=310,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=1150,y=490,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=1000,y=390,width=100,height=50,type=14))
-        self.plataform_list.append(Plataform(x=1050,y=390,width=100,height=50,type=14))
-        self.plataform_list.append(Plataform(x=1000,y=200,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=1050,y=200,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=1100,y=200,width=100,height=50,type=0))
+        for plataforma in self.datos_extraidos["niveles"]["nivel_4"]["config_plataformas"]:
+            x,y,w,h,tipo= plataforma
+            self.plataform_list.append(Plataform(x,y,w,h,tipo))
         
-
         self.bullet_list = []
 
         self.coin_list = []
-        self.coin_list.append (Coins(x=1430,y=300,w=1,h=1,type=2))
-        self.coin_list.append (Coins(x=100,y=480,w=1,h=1,type=3))
-        self.coin_list.append (Coins(x=600,y=300,w=1,h=1,type=5))
-        self.coin_list.append (Coins(x=500,y=300,w=1,h=1,type=1))
-        self.coin_list.append (Coins(x=800,y=250,w=1,h=1,type=1))
-        self.coin_list.append (Coins(x=930,y=80,w=1,h=1,type=2))
-        self.coin_list.append (Coins(x=1220,y=280,w=1,h=1,type=3))
-        self.coin_list.append (Coins(x=1050,y=350,w=1,h=1,type=4))
-        self.coin_list.append (Coins(x=350,y=550,w=1,h=1,type=5))
-        self.coin_list.append (Coins(x=830,y=430,w=1,h=1,type=1))
-        self.coin_list.append (Coins(x=100,y=130,w=1,h=1,type=2))
-        self.coin_list.append (Coins(x=350,y=80,w=1,h=1,type=3))
-        self.coin_list.append (Coins(x=1430,y=70,w=1,h=1,type=5)) 
-        self.coin_list.append (Coins(x=400,y=670,w=1,h=1,type=3))
-        self.coin_list.append (Coins(x=800,y=670,w=1,h=1,type=4))
-        self.coin_list.append (Coins(x=1200,y=670,w=1,h=1,type=5))
-        self.coin_list.append (Coins(x=1130,y=60,w=1,h=1,type=1))
-        self.coin_list.append (Coins(x=550,y=120,w=1,h=1,type=3))
-        self.coin_list.append (Coins(x=1350,y=470,w=1,h=1,type=4))
-        self.coin_list.append (Coins(x=100,y=320,w=1,h=1,type=5))
+        for coin in self.datos_extraidos["niveles"]["nivel_4"]["config_coins"]:
+            x,y,w,h,tipo= coin
+            self.coin_list.append(Coins(x,y,w,h,tipo))
 
         #PAUSA - TIMER
         self.is_paused = False

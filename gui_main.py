@@ -11,9 +11,9 @@ from gui_form_menu_game_l1 import FormGameLevel1
 from gui_form_menu_game_l2 import FormGameLevel2
 from gui_form_menu_game_l3 import FormGameLevel3
 from gui_form_menu_game_l4 import FormGameLevel4
-from gui_form_menu_levels import FormMenuLevels
+from gui_form_menu_levels import FormMenuLevels 
 
-
+ 
 flags = DOUBLEBUF 
 screen = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA), flags, 16)
 pygame.display.set_caption("HALLOWEEN NIGTH")

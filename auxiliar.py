@@ -1,4 +1,5 @@
 import pygame
+import json
 
 class Auxiliar:
     @staticmethod
@@ -43,3 +44,9 @@ class Auxiliar:
             for i in range(repeat_frame):
                 lista.append(surface_fotograma)
         return lista
+    
+    @staticmethod
+    def leer_json(path):
+        with open(path, "r") as archivo:
+            datos = json.load(archivo)
+        return datos

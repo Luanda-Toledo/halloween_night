@@ -11,6 +11,8 @@ from background import Background
 from bullet import Bullet
 from botin import Coins
 import time
+from pygame import rect
+from auxiliar import Auxiliar
 
 class FormGameLevel1(Form):
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active):
@@ -29,86 +31,38 @@ class FormGameLevel1(Form):
 
         self.player_1 = Player(x=0,y=400,speed_walk=10,speed_run=12,gravity=14,jump_power=30,frame_rate_ms=100,move_rate_ms=50,jump_height=140,p_scale=0.2,interval_time_jump=300)
 
+        self.datos_extraidos = Auxiliar.leer_json("config.json")
+
         self.enemy_list = []
-        self.enemy_list.append (EnemyZombie(x=450,y=400,speed_walk=6,speed_run=5,gravity=14,jump_power=30,frame_rate_ms=150,move_rate_ms=50,jump_height=140,p_scale=0.08,interval_time_jump=300))
-        self.enemy_list.append (EnemyZombie(x=1200,y=100,speed_walk=6,speed_run=5,gravity=14,jump_power=30,frame_rate_ms=150,move_rate_ms=50,jump_height=140,p_scale=0.08,interval_time_jump=300))
-        self.enemy_list.append (EnemyZombie(x=800,y=100,speed_walk=6,speed_run=5,gravity=14,jump_power=30,frame_rate_ms=150,move_rate_ms=50,jump_height=140,p_scale=0.08,interval_time_jump=300))
+        for zoombie in self.datos_extraidos["niveles"]["nivel_1"]["config_zoombie"]:
+            x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump= zoombie
+            self.enemy_list.append(EnemyZombie(x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump))
 
-        self.enemy_list.append (EnemyMurcielago(x=400,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
-        self.enemy_list.append (EnemyMurcielago(x=900,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=500))
-        self.enemy_list.append (EnemyMurcielago(x=1200,y=100,speed_walk=1,speed_run=2,gravity=1,jump_power=30,frame_rate_ms=100,move_rate_ms=10,jump_height=140,p_scale=0.02,interval_time_jump=800))
-
-        #self.config_json = config_json
-
+        for murcielago in self.datos_extraidos["niveles"]["nivel_1"]["config_murcielago"]:
+            x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump= murcielago
+            self.enemy_list.append(EnemyMurcielago(x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump))
+            
         self.plataform_list = []
-        self.plataform_list.append(Plataform(x=200,y=400,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=250,y=400,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=450,y=500,width=100,height=50,type=1))
-        self.plataform_list.append(Plataform(x=500,y=500,width=100,height=50,type=2))
-        self.plataform_list.append(Plataform(x=200,y=200,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=350,y=280,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=300,y=580,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=350,y=580,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=900,y=580,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=950,y=580,width=100,height=50,type=0))
-
-        self.plataform_list.append(Plataform(x=450,y=350,width=100,height=50,type=1))
-        self.plataform_list.append(Plataform(x=500,y=350,width=100,height=50,type=2))
-        self.plataform_list.append(Plataform(x=550,y=350,width=100,height=50,type=2))
-        self.plataform_list.append(Plataform(x=600,y=350,width=100,height=50,type=2))
-
-        self.plataform_list.append(Plataform(x=300,y=100,width=100,height=50,type=2))
-        self.plataform_list.append(Plataform(x=1400,y=100,width=100,height=50,type=2))    
-        self.plataform_list.append(Plataform(x=600,y=430,width=100,height=50,type=12))
-        self.plataform_list.append(Plataform(x=650,y=430,width=100,height=50,type=14))
-        self.plataform_list.append(Plataform(x=750,y=280,width=100,height=50,type=12))
-        self.plataform_list.append(Plataform(x=800,y=280,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=850,y=280,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=800,y=460,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=850,y=100,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=900,y=100,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=850,y=100,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=900,y=100,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=50,y=500,width=100,height=50,type=14))
-        self.plataform_list.append(Plataform(x=50,y=160,width=100,height=50,type=14))
-        self.plataform_list.append(Plataform(x=500,y=160,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=550,y=160,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=1100,y=100,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=1300,y=500,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=1300,y=160,width=100,height=50,type=14))
-        self.plataform_list.append(Plataform(x=1350,y=160,width=100,height=50,type=14))
-        self.plataform_list.append(Plataform(x=1400,y=350,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=1200,y=310,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=1250,y=310,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=1150,y=490,width=100,height=50,type=13))
-        self.plataform_list.append(Plataform(x=1000,y=390,width=100,height=50,type=14))
-        self.plataform_list.append(Plataform(x=1050,y=390,width=100,height=50,type=14))
-        self.plataform_list.append(Plataform(x=1000,y=200,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=1050,y=200,width=100,height=50,type=0))
-        self.plataform_list.append(Plataform(x=1100,y=200,width=100,height=50,type=0))
+        for plataforma in self.datos_extraidos["niveles"]["nivel_1"]["config_plataformas"]:
+            x,y,w,h,tipo= plataforma
+            self.plataform_list.append(Plataform(x,y,w,h,tipo))
 
         self.bullet_list = []
 
         self.coin_list = []
-        self.coin_list.append (Coins(x=1430,y=300,w=1,h=1,type=1))
-        self.coin_list.append (Coins(x=100,y=480,w=1,h=1,type=2))
-        self.coin_list.append (Coins(x=600,y=300,w=1,h=1,type=2))
-        self.coin_list.append (Coins(x=500,y=300,w=1,h=1,type=2))
-        self.coin_list.append (Coins(x=900,y=80,w=1,h=1,type=4))
-        self.coin_list.append (Coins(x=930,y=80,w=1,h=1,type=3))
-        self.coin_list.append (Coins(x=1220,y=280,w=1,h=1,type=5))
-        self.coin_list.append (Coins(x=1050,y=350,w=1,h=1,type=1))
-        self.coin_list.append (Coins(x=350,y=550,w=1,h=1,type=2))
-        self.coin_list.append (Coins(x=830,y=430,w=1,h=1,type=4))
-        self.coin_list.append (Coins(x=100,y=130,w=1,h=1,type=4))
-        self.coin_list.append (Coins(x=350,y=80,w=1,h=1,type=3))
-        self.coin_list.append (Coins(x=1430,y=70,w=1,h=1,type=5))
+        for coin in self.datos_extraidos["niveles"]["nivel_1"]["config_coins"]:
+            x,y,w,h,tipo= coin
+            self.coin_list.append(Coins(x,y,w,h,tipo))
 
         #PAUSA - TIMER
         self.is_paused = False
         self.start_time = 0
         self.elapsed_time = 0
         self.player_moved = False
+        self.flag_segundos = False
+
+        self.current_time = time.time()
+        self.collision_timer = time.time()
 
         #IMG RELOJ
         self.clock_background = pygame.image.load("recursos/menu/button_two.png").convert_alpha()
@@ -146,12 +100,8 @@ class FormGameLevel1(Form):
                 self.elapsed_time += time.time() - self.start_time
                 self.start_time = time.time()
 
-    #def on_click_shoot(self, parametro):
-    #    for enemy_element in self.enemy_list:
-    #        self.bullet_list.append(Bullet(enemy_element,enemy_element.rect.centerx,enemy_element.rect.centery,self.player_1.rect.centerx,self.player_1.rect.centery,20,path="recursos/images/gui/jungle/upgrade/a.png",frame_rate_ms=100,move_rate_ms=20,width=5,height=5))
- 
+
     def update(self, lista_eventos, keys, delta_ms):
-            
         for aux_widget in self.widget_list:
             aux_widget.update(lista_eventos)
 
@@ -160,12 +110,25 @@ class FormGameLevel1(Form):
 
         for enemy_element in self.enemy_list:
             enemy_element.update(delta_ms, self.plataform_list)
-
+    
             rect_enemy = enemy_element.rect
-            if self.player_1.rect.colliderect(rect_enemy) and self.player_1.rect.top < rect_enemy.bottom:
+    
+            # Obtener las coordenadas de los rectángulos adicionales
+            rect_enemy_top = pygame.Rect(rect_enemy.left, rect_enemy.top - 10, rect_enemy.width, 10)
+            rect_player_bottom = pygame.Rect(self.player_1.rect.left, self.player_1.rect.bottom, self.player_1.rect.width, 10)
+    
+            # Colisión entre el rectángulo superior del enemigo y el rectángulo inferior del jugador
+            if rect_player_bottom.colliderect(rect_enemy_top):
+                # El enemigo muere
                 self.enemy_list.remove(enemy_element)
                 self.player_1.score += 10
-        
+    
+            # Colisión entre cualquier parte del jugador y el enemigo (excepto el rectángulo inferior)
+            elif self.player_1.rect.colliderect(rect_enemy) and self.player_1.rect.bottom > rect_enemy.top:
+                # El jugador pierde vida
+                self.player_1.lives -= 1
+
+
         self.pb_lives.value = self.player_1.lives
 
         if not self.player_moved:
@@ -200,7 +163,7 @@ class FormGameLevel1(Form):
         for bullet_element in self.bullet_list:
             bullet_element.draw(self.surface)
 
-        if self.player_1.lives <= 0:
+        if self.pb_lives.value <= 0:
             self.surface.blit(self.game_over_image, self.game_over_image_rect)
             self.is_paused = True
 
