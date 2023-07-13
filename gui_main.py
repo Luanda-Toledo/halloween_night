@@ -58,19 +58,6 @@ while True:
     pygame.display.flip()
 
 
-'''
-plataformas = leer_json("path")["nivel_2"]["config_plataformas"]
-enemigos = leer_json("path","clave_a_leer")["nivel_2"]["config_enemigos"]
-
-for subl in lista:
-    plat = plataforma(subl[0],subl[1])
-    plat.do_some_thing()
-
-for enemigo in enemigos:
-    enemigo_juego = enemigo(enemigo[0],enemigo[1])
-    enemigo_juego.do_some_thing()
-'''
-
 
 
     

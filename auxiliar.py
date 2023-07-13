@@ -2,8 +2,20 @@ import pygame
 import json
 
 class Auxiliar:
+    '''
+    "Auxiliar" contiene varios métodos estáticos para tareas relacionadas con la manipulacióm
+    de imágenes y el manejo de archivos JSON
+    '''
+
     @staticmethod
     def getSurfaceFromSpriteSheet(path, columnas, filas, flip = False, step = 1, scale = 1): #para img en hoja sprite
+        '''
+        Este método toma la ruta de una hoja de sprites junto con el número de columnas y filas en la hoja.
+        Opcionalmente, permite voltear las imágenes horizontalmente, establecer un tamaño de paso para 
+        seleccionar fotogramas y escalar los fotogramas.
+        Divide la hoja de sprites en fotogramas individuales y devuelve una lista de superficies pygame
+        que representan cada fotograma.
+        '''
         lista = []
         surface_imagen = pygame.image.load(path)
         fotograma_ancho = int(surface_imagen.get_width()/columnas)
@@ -27,6 +39,15 @@ class Auxiliar:
     @staticmethod
     def getSurfaceFromSeparateFiles(path_format, from_index, quantity, flip = False, step = 1, scale = 1, w = 0,
                                     h = 0, repeat_frame = 1): #para img individuales
+        '''
+        Este método toma una cadena de formato de ruta, un índice inicial, una cantidad y parámetros
+        opcionales similares al método anterior.
+        Genera rutas utilizando la cadena de formato y el índice proporcionados, carga los archivos
+        de imagen individuales y realiza transformaciones opcionales.
+        Devuelve una lista de superficies pygame que representan los fotogramas obtenidos de los archivos
+        de imagen separados.
+        '''
+
         lista = []
         for i in range(from_index, quantity + from_index):
             path = path_format.format(i)
@@ -47,6 +68,11 @@ class Auxiliar:
     
     @staticmethod
     def leer_json(path):
+        '''
+        Este método toma la ruta de un archivo JSON y lee su contenido utilizando la función json.load().
+        Devuelve los datos JSON analizados como un objeto de Python (diccionario, lista, etc.).
+        '''
         with open(path, "r") as archivo:
             datos = json.load(archivo)
         return datos
+    

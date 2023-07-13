@@ -5,9 +5,29 @@ from constantes import *
 
 
 class EnemyEsqueletin(Enemy):
+    '''
+    Clase "EnemyEsqueletin", que hereda de la clase "Enemy" y representa un enemigo específico llamado "Esqueletin" 
+    '''
 
     def __init__(self, x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, 
                  p_scale = 1, interval_time_jump = 100) -> None:
+        '''
+        El método de inicialización de la clase recibe varios parámetros que definen las propiedades del enemigo Esqueletin:
+        x, y: Las coordenadas iniciales del enemigo en la pantalla.
+        speed_walk, speed_run: Las velocidades de movimiento del enemigo al caminar y correr.
+        gravity: La gravedad que afecta al enemigo.
+        jump_power: La potencia del salto del enemigo.
+        frame_rate_ms: El tiempo en milisegundos entre cada fotograma de animación.
+        move_rate_ms: El tiempo en milisegundos entre cada movimiento del enemigo.
+        jump_height: La altura máxima del salto del enemigo.
+        p_scale: La escala de tamaño del enemigo (opcional, por defecto es 1).
+        interval_time_jump: El intervalo de tiempo en milisegundos entre cada salto del enemigo.
+        
+        El método realiza las siguientes acciones:
+        Llama al método de inicialización de la clase padre "Enemy" utilizando super().__init__() para establecer las propiedades básicas del enemigo.
+        Carga las imágenes de animación para caminar y estar quieto en las direcciones derecha e izquierda utilizando el método estático getSurfaceFromSeparateFiles de la clase "Auxiliar". Las imágenes se cargan desde archivos y se escalan y transforman según los parámetros proporcionados.
+        Inicializa varios atributos del enemigo
+        '''
         
         super().__init__(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, 
                  p_scale = 1, interval_time_jump = 100)
@@ -55,10 +75,30 @@ class EnemyEsqueletin(Enemy):
         self.interval_time_jump = interval_time_jump
 
 class EnemyZombie(Enemy):
+    '''
+    "EnemyZombie" hereda de la clase "Enemy" y representa un enemigo específico llamado "Zombie" 
+    '''
 
     def __init__(self, x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, 
                  p_scale = 1, interval_time_jump = 100) -> None:
-        
+        '''
+         El método de inicialización de la clase recibe varios parámetros que definen las propiedades del enemigo Zombie:
+        x, y: Las coordenadas iniciales del enemigo en la pantalla.
+        speed_walk, speed_run: Las velocidades de movimiento del enemigo al caminar y correr.
+        gravity: La gravedad que afecta al enemigo.
+        jump_power: La potencia del salto del enemigo.
+        frame_rate_ms: El tiempo en milisegundos entre cada fotograma de animación.
+        move_rate_ms: El tiempo en milisegundos entre cada movimiento del enemigo.
+        jump_height: La altura máxima del salto del enemigo.
+        p_scale: La escala de tamaño del enemigo (opcional, por defecto es 1).
+        interval_time_jump: El intervalo de tiempo en milisegundos entre cada salto del enemigo.
+
+        El método realiza las siguientes acciones:
+        Llama al método de inicialización de la clase padre "Enemy" utilizando super().__init__() para establecer las propiedades básicas del enemigo.
+        Carga las imágenes de animación para caminar y estar quieto en las direcciones derecha e izquierda utilizando el método estático getSurfaceFromSeparateFiles de la clase "Auxiliar". Las imágenes se cargan desde archivos y se escalan y transforman según los parámetros proporcionados.
+        Inicializa varios atributos del enemigo, como
+        '''
+
         super().__init__(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, 
                  p_scale = 1, interval_time_jump = 100)
         
@@ -105,9 +145,29 @@ class EnemyZombie(Enemy):
         self.interval_time_jump = interval_time_jump
 
 class EnemyFantasmin(Enemy):
+    '''
+    "EnemyFantasmin" hereda de la clase "Enemy" y representa un enemigo específico llamado "Fantasmin" 
+    '''
 
     def __init__(self, x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, 
                  p_scale = 1, interval_time_jump = 100) -> None:
+        '''
+        El método de inicialización de la clase recibe varios parámetros que definen las propiedades del enemigo Fantasmin:
+        x, y: Las coordenadas iniciales del enemigo en la pantalla.
+        speed_walk, speed_run: Las velocidades de movimiento del enemigo al caminar y correr.
+        gravity: La gravedad que afecta al enemigo.
+        jump_power: La potencia del salto del enemigo.
+        frame_rate_ms: El tiempo en milisegundos entre cada fotograma de animación.
+        move_rate_ms: El tiempo en milisegundos entre cada movimiento del enemigo.
+        jump_height: La altura máxima del salto del enemigo.
+        p_scale: La escala de tamaño del enemigo (opcional, por defecto es 1).
+        interval_time_jump: El intervalo de tiempo en milisegundos entre cada salto del enemigo.
+
+        El método realiza las siguientes acciones:
+        Llama al método de inicialización de la clase padre "Enemy" utilizando super().__init__() para establecer las propiedades básicas del enemigo.
+        Carga las imágenes de animación para caminar y estar quieto en las direcciones derecha e izquierda utilizando el método estático getSurfaceFromSeparateFiles de la clase "Auxiliar". Las imágenes se cargan desde archivos y se escalan y transforman según los parámetros proporcionados.
+        Inicializa varios atributos del enemigo.
+        '''
         
         super().__init__(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, 
                  p_scale = 1, interval_time_jump = 100)
@@ -155,9 +215,29 @@ class EnemyFantasmin(Enemy):
         self.interval_time_jump = interval_time_jump
 
 class EnemyMurcielago(Enemy):
+    '''
+    "EnemyMurcielago" hereda de la clase "Enemy" y representa un enemigo específico llamado "Murcielago" 
+    '''
 
     def __init__(self, x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, 
                  p_scale = 1, interval_time_jump = 100) -> None:
+        '''
+        El método de inicialización de la clase recibe varios parámetros que definen las propiedades del enemigo Murcielago:
+        x, y: Las coordenadas iniciales del enemigo en la pantalla.
+        speed_walk, speed_run: Las velocidades de movimiento del enemigo al caminar y correr.
+        gravity: La gravedad que afecta al enemigo.
+        jump_power: La potencia del salto del enemigo.
+        frame_rate_ms: El tiempo en milisegundos entre cada fotograma de animación.
+        move_rate_ms: El tiempo en milisegundos entre cada movimiento del enemigo.
+        jump_height: La altura máxima del salto del enemigo.
+        p_scale: La escala de tamaño del enemigo (opcional, por defecto es 1).
+        interval_time_jump: El intervalo de tiempo en milisegundos entre cada salto del enemigo.
+
+        El método realiza las siguientes acciones:
+        Llama al método de inicialización de la clase padre "Enemy" utilizando super().__init__() para establecer las propiedades básicas del enemigo.
+        Carga las imágenes de animación para caminar y estar quieto en las direcciones derecha e izquierda utilizando el método estático getSurfaceFromSeparateFiles de la clase "Auxiliar". Las imágenes se cargan desde archivos y se escalan y transforman según los parámetros proporcionados.
+        Inicializa varios atributos del enemigo.
+        '''
         
         super().__init__(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, 
                  p_scale = 1, interval_time_jump = 100)
@@ -205,9 +285,29 @@ class EnemyMurcielago(Enemy):
         self.interval_time_jump = interval_time_jump
 
 class EnemyVampiro(Enemy):
+    '''
+    "EnemyVampiro" hereda de la clase "Enemy" y representa un enemigo específico llamado "Vampiro" 
+    '''
 
     def __init__(self, x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, 
                  p_scale = 1, interval_time_jump = 100) -> None:
+        '''
+        El método de inicialización de la clase recibe varios parámetros que definen las propiedades del enemigo Vampiro:
+        x, y: Las coordenadas iniciales del enemigo en la pantalla.
+        speed_walk, speed_run: Las velocidades de movimiento del enemigo al caminar y correr.
+        gravity: La gravedad que afecta al enemigo.
+        jump_power: La potencia del salto del enemigo.
+        frame_rate_ms: El tiempo en milisegundos entre cada fotograma de animación.
+        move_rate_ms: El tiempo en milisegundos entre cada movimiento del enemigo.
+        jump_height: La altura máxima del salto del enemigo.
+        p_scale: La escala de tamaño del enemigo (opcional, por defecto es 1).
+        interval_time_jump: El intervalo de tiempo en milisegundos entre cada salto del enemigo.
+
+        El método realiza las siguientes acciones:
+        Llama al método de inicialización de la clase padre "Enemy" utilizando super().__init__() para establecer las propiedades básicas del enemigo.
+        Carga las imágenes de animación para caminar y estar quieto en las direcciones derecha e izquierda utilizando el método estático getSurfaceFromSeparateFiles de la clase "Auxiliar". Las imágenes se cargan desde archivos y se escalan y transforman según los parámetros proporcionados.
+        Inicializa varios atributos del enemigo.
+        '''
         
         super().__init__(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, 
                  p_scale = 1, interval_time_jump = 100)
@@ -255,9 +355,29 @@ class EnemyVampiro(Enemy):
         self.interval_time_jump = interval_time_jump
 
 class EnemyEqueco(Enemy):
+    '''
+    "EnemyEqueco" hereda de la clase "Enemy" y representa un enemigo específico llamado "Equeco" 
+    '''
 
     def __init__(self, x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, 
                  p_scale = 1, interval_time_jump = 100) -> None:
+        '''
+        El método de inicialización de la clase recibe varios parámetros que definen las propiedades del enemigo Equeco:
+        x, y: Las coordenadas iniciales del enemigo en la pantalla.
+        speed_walk, speed_run: Las velocidades de movimiento del enemigo al caminar y correr.
+        gravity: La gravedad que afecta al enemigo.
+        jump_power: La potencia del salto del enemigo.
+        frame_rate_ms: El tiempo en milisegundos entre cada fotograma de animación.
+        move_rate_ms: El tiempo en milisegundos entre cada movimiento del enemigo.
+        jump_height: La altura máxima del salto del enemigo.
+        p_scale: La escala de tamaño del enemigo (opcional, por defecto es 1).
+        interval_time_jump: El intervalo de tiempo en milisegundos entre cada salto del enemigo.
+
+        El método realiza las siguientes acciones:
+        Llama al método de inicialización de la clase padre "Enemy" utilizando super().__init__() para establecer las propiedades básicas del enemigo.
+        Carga las imágenes de animación para caminar y estar quieto en las direcciones derecha e izquierda utilizando el método estático getSurfaceFromSeparateFiles de la clase "Auxiliar". Las imágenes se cargan desde archivos y se escalan y transforman según los parámetros proporcionados.
+        Inicializa varios atributos del enemigo.
+        '''
         
         super().__init__(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, 
                  p_scale = 1, interval_time_jump = 100)

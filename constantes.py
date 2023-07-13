@@ -3,7 +3,6 @@ ALTO_VENTANA = 800
 GROUND_LEVEL = 720
 FPS = 30
 
-
 DIRECTION_L = 0
 DIRECTION_R = 1
 GROUND_COLLIDE_H = 8 # Aprox Gravedad/2 + 1
@@ -32,3 +31,17 @@ M_BRIGHT_CLICK = (32,32,32)
 heart_spacing = 10  # Espacio entre cada imagen de corazón
 heart_x = 700
 heart_y = 10  # Altura de la parte superior central de la pantalla donde se mostrarán los corazones
+
+color_bullets = (255,0 ,0) #Color rectangulo colision bala
+
+tamaño_img_reloj = (120, 60)
+tamaño_img_score = (260, 60)
+tamaño_img_lives = (40, 40)
+
+tamaño_img_botones = (420, 420)
+
+posicion_text_cargando_menu_principal = (400, 620)
+tamaño_presentacion_inicial = (800, 800)
+tamaño_img_fondo_botones = (420, 420)
+
+

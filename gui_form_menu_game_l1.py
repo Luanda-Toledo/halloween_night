@@ -11,18 +11,33 @@ from background import Background
 from bullet import Bullet
 from botin import Coins
 import time
-from pygame import rect
 from auxiliar import Auxiliar
 
 class FormGameLevel1(Form):
+    '''
+    "FormGameLevel1" hereda de la clase "Form" y representa un formulario específico para el nivel 1 .
+    '''
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active):
+        '''
+        El método de inicialización de la clase recibe varios parámetros que definen las propiedades del formulario:
+        name: El nombre del formulario.
+        master_surface: La superficie principal del formulario.
+        x, y: Las coordenadas de la posición inicial del formulario.
+        w, h: El ancho y alto del formulario.
+        color_background: El color de fondo del formulario.
+        color_border: El color del borde del formulario.
+        active: Indica si el formulario está activo o no.
+
+        Llama al método de inicialización de la clase padre "Form" utilizando super().__init__() para establecer las propiedades básicas del formulario.
+        Inicializa los atributos adicionales del formulario, como boton2, pb_lives y widget_list.
+        Carga los datos extraídos del archivo JSON para configurar los elementos del juego, como el fondo, el jugador, los enemigos, las plataformas, las balas y las monedas.
+        Inicializa las variables relacionadas con la pausa y el temporizador.
+        Carga las imágenes para el reloj, la puntuación, el corazón, el mensaje de "Game Over" y el mensaje de "Winner".
+        '''
         super().__init__(name,master_surface,x,y,w,h,color_background,color_border,active)
 
         # --- GUI WIDGET --- 
-        #self.boton1 = Button(master=self,x=0,y=0,w=140,h=50,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_boton1,on_click_param="form_menu_principal",text="BACK",font="Verdana",font_size=30,font_color=C_WHITE)
         self.boton2 = Button(master=self,x=5,y=0,w=160,h=60,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_boton2,on_click_param="form_menu_levels",text="PAUSE",font="Verdana",font_size=30,font_color=C_WHITE)
-        #self.boton_shoot = Button(master=self,x=400,y=0,w=140,h=50,color_background=None,color_border=None,image_background="recursos/menu/button_two.png",on_click=self.on_click_shoot,on_click_param="form_menu_settings",text="SHOOT",font="Verdana",font_size=30,font_color=C_WHITE)
-       
         self.pb_lives = ProgressBar(master=self,x=450,y=10,w=200,h=40,color_background=None,color_border=None,image_background="recursos/nada.png",image_progress="recursos/images/gui/set_gui_01/Data/Elements/heart.png",value = 5, value_max=5)
         self.widget_list = [self.boton2, self.pb_lives]
 
@@ -123,15 +138,15 @@ class FormGameLevel1(Form):
 
         #IMG RELOJ
         self.clock_background = pygame.image.load("recursos/menu/button_two.png").convert_alpha()
-        self.clock_background = pygame.transform.scale(self.clock_background, (120, 60))
+        self.clock_background = pygame.transform.scale(self.clock_background, tamaño_img_reloj)
 
         # IMG SCORE
         self.score_image = pygame.image.load("recursos/menu/button_two.png").convert_alpha()
-        self.score_image = pygame.transform.scale(self.score_image, (260, 60))
+        self.score_image = pygame.transform.scale(self.score_image, tamaño_img_score)
 
         # IMG LIVE
         self.heart_image = pygame.image.load("recursos/images/gui/set_gui_01/Data/Elements/heart.png").convert_alpha()
-        self.heart_image = pygame.transform.scale(self.heart_image, (40, 40))
+        self.heart_image = pygame.transform.scale(self.heart_image, tamaño_img_lives)
 
         # IMG GAME OVER
         self.game_over_image = pygame.image.load("recursos/images/gui/set_gui_01/Comic/Text/LOSER.png").convert_alpha()
@@ -143,6 +158,10 @@ class FormGameLevel1(Form):
 
 
     def on_click_boton2(self, parametro):
+        '''
+        Maneja el evento de clic del botón boton2. Cambia el estado de pausa del formulario y
+        controla la reproducción o pausa de la música de fondo según el estado de pausa actual.
+        '''
         self.set_active(parametro)
         self.is_paused = not self.is_paused
         if self.is_paused:
@@ -159,6 +178,13 @@ class FormGameLevel1(Form):
 
 
     def update(self, lista_eventos, keys, delta_ms):
+        '''
+        Actualiza el estado del formulario y sus elementos en función de los eventos recibidos, 
+        las teclas presionadas y el tiempo transcurrido desde la última actualización. 
+        Actualiza los widgets, las balas y los enemigos. Verifica las colisiones entre los enemigos y 
+        el jugador, y actualiza la barra de progreso de vidas del jugador. Controla el inicio del 
+        temporizador cuando el jugador comienza a moverse.
+        '''
         for aux_widget in self.widget_list:
             aux_widget.update(lista_eventos)
 
@@ -199,7 +225,13 @@ class FormGameLevel1(Form):
         self.player_1.update(delta_ms, self.plataform_list, self.coin_list)
 
 
-    def draw(self): 
+    def draw(self):
+        '''
+        Dibuja el contenido del formulario en la superficie principal. Llama al método draw() de la clase
+        padre "Form" para dibujar el fondo y el borde. Dibuja los elementos del juego, como el fondo estático,
+        los widgets, las plataformas, las monedas, los enemigos, el jugador y las balas. Muestra las imágenes 
+        relacionadas con el puntaje, el reloj, el corazón y los mensajes de "Game Over" o "Winner" según corresponda.
+        ''' 
         super().draw()
         self.static_background.draw(self.surface)
 
@@ -231,7 +263,7 @@ class FormGameLevel1(Form):
         #SCORE
         self.surface.blit(self.score_image, (170, 0))
         score_font = pygame.font.SysFont("Verdana", 30)  # Fuente para el texto del score
-        score_text = score_font.render("SCORE: " + str(self.player_1.score * 100), True, (255, 255, 255))  # Renderiza el texto del score
+        score_text = score_font.render("SCORE: " + str(self.player_1.score * 100), True, C_WHITE)  # Renderiza el texto del score
         self.surface.blit(score_text, (200, 15))
 
         # Draw mini clock
@@ -241,7 +273,7 @@ class FormGameLevel1(Form):
             seconds = current_time % 60
             clock_rect = self.clock_background.get_rect(topright=(self.master_surface.get_width() - 20, 5))
             self.surface.blit(self.clock_background, clock_rect)
-            clock_text = pygame.font.SysFont("Verdana", 30).render(f"{minutes:02d}:{seconds:02d}", True, (255, 255, 255))
+            clock_text = pygame.font.SysFont("Verdana", 30).render(f"{minutes:02d}:{seconds:02d}", True, C_WHITE)
             clock_text_rect = clock_text.get_rect(center=clock_rect.center)
             self.surface.blit(clock_text, clock_text_rect)
 
