@@ -25,33 +25,88 @@ class FormGameLevel2(Form):
         self.widget_list = [self.boton2, self.pb_lives]
 
         # --- GAME ELEMNTS --- 
-        self.static_background = Background(x=0,y=0,width=w,height=h,path="recursos/fondo/1_game_background/1_game_background.png")
+        self.datos_extraidos = Auxiliar.leer_json("nivel_dos.json")
 
-        self.player_1 = Player(x=0,y=400,speed_walk=10,speed_run=12,gravity=14,jump_power=30,frame_rate_ms=100,move_rate_ms=50,jump_height=140,p_scale=0.2,interval_time_jump=300)
+        background_data = self.datos_extraidos["nivel_2"]["background_level_dos"][0]
+        x = background_data.get("x")
+        y = background_data.get("y")
+        path = background_data.get("path")
+        w = w
+        h = h
 
-        self.datos_extraidos = Auxiliar.leer_json("config.json")
+        self.static_background = Background(x, y, w, h, path)
+
+        player_data = self.datos_extraidos["nivel_2"]["player_uno"][0]
+        x = player_data.get("x")
+        y = player_data.get("y")
+        speed_walk = player_data.get("speed_walk")
+        speed_run = player_data.get("speed_run")
+        gravity = player_data.get("gravity")
+        jump_power = player_data.get("jump_power")
+        frame_rate_ms = player_data.get("frame_rate_ms")
+        move_rate_ms = player_data.get("move_rate_ms")
+        jump_height = player_data.get("jump_height")
+        p_scale = player_data.get("p_scale")
+        interval_time_jump = player_data.get("interval_time_jump")
+
+        self.player_1 = Player(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, p_scale, interval_time_jump)
 
         self.enemy_list = []
+        for vampiro in self.datos_extraidos["nivel_2"]["config_vampiro"]:
+            x = vampiro["x"]
+            y = vampiro["y"]
+            speed_walk = vampiro["speed_walk"]
+            speed_run = vampiro["speed_run"]
+            gravity = vampiro["gravity"]
+            jump_power = vampiro["jump_power"]
+            frame_rate_ms = vampiro["frame_rate_ms"]
+            move_rate_ms = vampiro["move_rate_ms"]
+            jump_height = vampiro["jump_height"]
+            p_scale = vampiro["p_scale"]
+            interval_time_jump = vampiro["interval_time_jump"]
 
-        for vampiro in self.datos_extraidos["niveles"]["nivel_2"]["config_vampiro"]:
-            x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump= vampiro
-            self.enemy_list.append(EnemyVampiro(x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump))
+            enemy_vampiro = EnemyVampiro(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, p_scale, interval_time_jump)
+            self.enemy_list.append(enemy_vampiro)
+            
+        for murcielago in self.datos_extraidos["nivel_2"]["config_murcielago"]:
+            x = murcielago["x"]
+            y = murcielago["y"]
+            speed_walk = murcielago["speed_walk"]
+            speed_run = murcielago["speed_run"]
+            gravity = murcielago["gravity"]
+            jump_power = murcielago["jump_power"]
+            frame_rate_ms = murcielago["frame_rate_ms"]
+            move_rate_ms = murcielago["move_rate_ms"]
+            jump_height = murcielago["jump_height"]
+            p_scale = murcielago["p_scale"]
+            interval_time_jump = murcielago["interval_time_jump"]
 
-        for murcielago in self.datos_extraidos["niveles"]["nivel_2"]["config_murcielago"]:
-            x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump= murcielago
-            self.enemy_list.append(EnemyMurcielago(x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump))
+            enemy_murcielago = EnemyMurcielago(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, p_scale, interval_time_jump)
+            self.enemy_list.append(enemy_murcielago)
 
         self.plataform_list = []
-        for plataforma in self.datos_extraidos["niveles"]["nivel_2"]["config_plataformas"]:
-            x,y,w,h,tipo= plataforma
-            self.plataform_list.append(Plataform(x,y,w,h,tipo))
+        for plataforma in self.datos_extraidos["nivel_2"]["config_plataformas"]:
+            x = plataforma["x"]
+            y = plataforma["y"]
+            w = plataforma["w"]
+            h = plataforma["h"]
+            tipo = plataforma["tipo"]
+
+            plataforma_obj = Plataform(x, y, w, h, tipo)
+            self.plataform_list.append(plataforma_obj)
 
         self.bullet_list = []
 
         self.coin_list = []
-        for coin in self.datos_extraidos["niveles"]["nivel_2"]["config_coins"]:
-            x,y,w,h,tipo= coin
-            self.coin_list.append(Coins(x,y,w,h,tipo))
+        for coin in self.datos_extraidos["nivel_2"]["config_coins"]:
+            x = coin["x"]
+            y = coin["y"]
+            w = coin["w"]
+            h = coin["h"]
+            tipo = coin["tipo"]
+
+            coin_obj = Coins(x, y, w, h, tipo)
+            self.coin_list.append(coin_obj)
 
         #PAUSA - TIMER
         self.is_paused = False

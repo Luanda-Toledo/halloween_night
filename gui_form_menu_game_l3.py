@@ -25,28 +25,72 @@ class FormGameLevel3(Form):
         self.widget_list = [self.boton2, self.pb_lives]
 
         # --- GAME ELEMNTS --- 
-        self.static_background = Background(x=0,y=0,width=w,height=h,path="recursos/fondo/1_game_background/1_game_background.png")
+        self.datos_extraidos = Auxiliar.leer_json("nivel_tres.json")
 
-        self.player_1 = Player(x=0,y=400,speed_walk=10,speed_run=12,gravity=14,jump_power=30,frame_rate_ms=100,move_rate_ms=50,jump_height=140,p_scale=0.2,interval_time_jump=300)
+        background_data = self.datos_extraidos["nivel_3"]["background_level_tres"][0]
+        x = background_data.get("x")
+        y = background_data.get("y")
+        path = background_data.get("path")
+        w = w
+        h = h
 
-        self.datos_extraidos = Auxiliar.leer_json("config.json")
+        self.static_background = Background(x, y, w, h, path)
+
+        player_data = self.datos_extraidos["nivel_3"]["player_uno"][0]
+        x = player_data.get("x")
+        y = player_data.get("y")
+        speed_walk = player_data.get("speed_walk")
+        speed_run = player_data.get("speed_run")
+        gravity = player_data.get("gravity")
+        jump_power = player_data.get("jump_power")
+        frame_rate_ms = player_data.get("frame_rate_ms")
+        move_rate_ms = player_data.get("move_rate_ms")
+        jump_height = player_data.get("jump_height")
+        p_scale = player_data.get("p_scale")
+        interval_time_jump = player_data.get("interval_time_jump")
+
+        self.player_1 = Player(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, p_scale, interval_time_jump)
 
         self.enemy_list = []
-        for fantasmin in self.datos_extraidos["niveles"]["nivel_3"]["config_fantasmin"]:
-            x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump= fantasmin
-            self.enemy_list.append(EnemyFantasmin(x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump))
+        for fantasmin in self.datos_extraidos["nivel_3"]["config_fantasmin"]:
+            x = fantasmin["x"]
+            y = fantasmin["y"]
+            speed_walk = fantasmin["speed_walk"]
+            speed_run = fantasmin["speed_run"]
+            gravity = fantasmin["gravity"]
+            jump_power = fantasmin["jump_power"]
+            frame_rate_ms = fantasmin["frame_rate_ms"]
+            move_rate_ms = fantasmin["move_rate_ms"]
+            jump_height = fantasmin["jump_height"]
+            p_scale = fantasmin["p_scale"]
+            interval_time_jump = fantasmin["interval_time_jump"]
+
+            enemy_fantasmin = EnemyFantasmin(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, p_scale, interval_time_jump)
+            self.enemy_list.append(enemy_fantasmin)
 
         self.plataform_list = []
-        for plataforma in self.datos_extraidos["niveles"]["nivel_3"]["config_plataformas"]:
-            x,y,w,h,tipo= plataforma
-            self.plataform_list.append(Plataform(x,y,w,h,tipo))
-        
+        for plataforma in self.datos_extraidos["nivel_3"]["config_plataformas"]:
+            x = plataforma["x"]
+            y = plataforma["y"]
+            w = plataforma["w"]
+            h = plataforma["h"]
+            tipo = plataforma["tipo"]
+
+            plataforma_obj = Plataform(x, y, w, h, tipo)
+            self.plataform_list.append(plataforma_obj)
+
         self.bullet_list = []
 
         self.coin_list = []
-        for coin in self.datos_extraidos["niveles"]["nivel_3"]["config_coins"]:
-            x,y,w,h,tipo= coin
-            self.coin_list.append(Coins(x,y,w,h,tipo))
+        for coin in self.datos_extraidos["nivel_3"]["config_coins"]:
+            x = coin["x"]
+            y = coin["y"]
+            w = coin["w"]
+            h = coin["h"]
+            tipo = coin["tipo"]
+
+            coin_obj = Coins(x, y, w, h, tipo)
+            self.coin_list.append(coin_obj)
 
         #PAUSA - TIMER
         self.is_paused = False

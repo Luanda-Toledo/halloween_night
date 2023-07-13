@@ -25,37 +25,104 @@ class FormGameLevel4(Form):
         self.widget_list = [self.boton2, self.pb_lives]
 
         # --- GAME ELEMNTS --- 
-        self.static_background = Background(x=0,y=0,width=w,height=h,path="recursos/fondo/1_game_background/1_game_background.png")
+        self.datos_extraidos = Auxiliar.leer_json("nivel_cuatro.json")
 
-        self.player_1 = Player(x=0,y=400,speed_walk=10,speed_run=12,gravity=14,jump_power=30,frame_rate_ms=100,move_rate_ms=50,jump_height=140,p_scale=0.2,interval_time_jump=300)
+        background_data = self.datos_extraidos["nivel_4"]["background_level_cuatro"][0]
+        x = background_data.get("x")
+        y = background_data.get("y")
+        path = background_data.get("path")
+        w = w
+        h = h
 
-        self.datos_extraidos = Auxiliar.leer_json("config.json")
+        self.static_background = Background(x, y, w, h, path)
+
+        player_data = self.datos_extraidos["nivel_4"]["player_uno"][0]
+        x = player_data.get("x")
+        y = player_data.get("y")
+        speed_walk = player_data.get("speed_walk")
+        speed_run = player_data.get("speed_run")
+        gravity = player_data.get("gravity")
+        jump_power = player_data.get("jump_power")
+        frame_rate_ms = player_data.get("frame_rate_ms")
+        move_rate_ms = player_data.get("move_rate_ms")
+        jump_height = player_data.get("jump_height")
+        p_scale = player_data.get("p_scale")
+        interval_time_jump = player_data.get("interval_time_jump")
+
+        self.player_1 = Player(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, p_scale, interval_time_jump)
 
         self.enemy_list = []
-        for esqueletin in self.datos_extraidos["niveles"]["nivel_4"]["config_esqueletin"]:
-            x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump= esqueletin
-            self.enemy_list.append(EnemyEsqueletin(x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump))
+        for esqueletin in self.datos_extraidos["nivel_4"]["config_esqueletin"]:
+            x = esqueletin["x"]
+            y = esqueletin["y"]
+            speed_walk = esqueletin["speed_walk"]
+            speed_run = esqueletin["speed_run"]
+            gravity = esqueletin["gravity"]
+            jump_power = esqueletin["jump_power"]
+            frame_rate_ms = esqueletin["frame_rate_ms"]
+            move_rate_ms = esqueletin["move_rate_ms"]
+            jump_height = esqueletin["jump_height"]
+            p_scale = esqueletin["p_scale"]
+            interval_time_jump = esqueletin["interval_time_jump"]
 
-        for murcielago in self.datos_extraidos["niveles"]["nivel_4"]["config_murcielago"]:
-            x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump= murcielago
-            self.enemy_list.append(EnemyMurcielago(x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump))
+            enemy_esqueletin = EnemyEsqueletin(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, p_scale, interval_time_jump)
+            self.enemy_list.append(enemy_esqueletin)
 
-        for equeco in self.datos_extraidos["niveles"]["nivel_4"]["config_equeco"]:
-            x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump= equeco
-            self.enemy_list.append(EnemyEqueco(x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,p_scale,interval_time_jump))
+        for murcielago in self.datos_extraidos["nivel_4"]["config_murcielago"]:
+            x = murcielago["x"]
+            y = murcielago["y"]
+            speed_walk = murcielago["speed_walk"]
+            speed_run = murcielago["speed_run"]
+            gravity = murcielago["gravity"]
+            jump_power = murcielago["jump_power"]
+            frame_rate_ms = murcielago["frame_rate_ms"]
+            move_rate_ms = murcielago["move_rate_ms"]
+            jump_height = murcielago["jump_height"]
+            p_scale = murcielago["p_scale"]
+            interval_time_jump = murcielago["interval_time_jump"]
 
+            enemy_murcielago = EnemyMurcielago(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, p_scale, interval_time_jump)
+            self.enemy_list.append(enemy_murcielago)
+
+        for equeco in self.datos_extraidos["nivel_4"]["config_equeco"]:
+            x = equeco["x"]
+            y = equeco["y"]
+            speed_walk = equeco["speed_walk"]
+            speed_run = equeco["speed_run"]
+            gravity = equeco["gravity"]
+            jump_power = equeco["jump_power"]
+            frame_rate_ms = equeco["frame_rate_ms"]
+            move_rate_ms = equeco["move_rate_ms"]
+            jump_height = equeco["jump_height"]
+            p_scale = equeco["p_scale"]
+            interval_time_jump = equeco["interval_time_jump"]
+
+            enemy_equeco = EnemyEqueco(x, y, speed_walk, speed_run, gravity, jump_power, frame_rate_ms, move_rate_ms, jump_height, p_scale, interval_time_jump)
+            self.enemy_list.append(enemy_equeco)
 
         self.plataform_list = []
-        for plataforma in self.datos_extraidos["niveles"]["nivel_4"]["config_plataformas"]:
-            x,y,w,h,tipo= plataforma
-            self.plataform_list.append(Plataform(x,y,w,h,tipo))
-        
+        for plataforma in self.datos_extraidos["nivel_4"]["config_plataformas"]:
+            x = plataforma["x"]
+            y = plataforma["y"]
+            w = plataforma["w"]
+            h = plataforma["h"]
+            tipo = plataforma["tipo"]
+
+            plataforma_obj = Plataform(x, y, w, h, tipo)
+            self.plataform_list.append(plataforma_obj)
+
         self.bullet_list = []
 
         self.coin_list = []
-        for coin in self.datos_extraidos["niveles"]["nivel_4"]["config_coins"]:
-            x,y,w,h,tipo= coin
-            self.coin_list.append(Coins(x,y,w,h,tipo))
+        for coin in self.datos_extraidos["nivel_4"]["config_coins"]:
+            x = coin["x"]
+            y = coin["y"]
+            w = coin["w"]
+            h = coin["h"]
+            tipo = coin["tipo"]
+
+            coin_obj = Coins(x, y, w, h, tipo)
+            self.coin_list.append(coin_obj)
 
         #PAUSA - TIMER
         self.is_paused = False
