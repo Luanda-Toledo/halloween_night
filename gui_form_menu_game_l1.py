@@ -133,8 +133,6 @@ class FormGameLevel1(Form):
         self.player_moved = False
         self.flag_segundos = False
 
-        self.current_time = time.time()
-        self.collision_timer = time.time()
 
         #IMG RELOJ
         self.clock_background = pygame.image.load("recursos/menu/button_two.png").convert_alpha()
@@ -208,10 +206,11 @@ class FormGameLevel1(Form):
     
             # Colisión entre cualquier parte del jugador y el enemigo (excepto el rectángulo inferior)
             elif self.player_1.rect.colliderect(rect_enemy) and self.player_1.rect.bottom > rect_enemy.top:
-                # El jugador pierde vida
-                self.player_1.lives -= 1
-
-
+                if self.player_1.can_shoot():
+                    # El jugador pierde vida
+                    self.player_1.lives -= 1
+                break
+                
         self.pb_lives.value = self.player_1.lives
 
         if not self.player_moved:
@@ -252,7 +251,7 @@ class FormGameLevel1(Form):
         for bullet_element in self.bullet_list:
             bullet_element.draw(self.surface)
 
-        if self.pb_lives.value <= 0:
+        if self.pb_lives.value == 0:
             self.surface.blit(self.game_over_image, self.game_over_image_rect)
             self.is_paused = True
 

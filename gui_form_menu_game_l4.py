@@ -203,12 +203,26 @@ class FormGameLevel4(Form):
 
         for enemy_element in self.enemy_list:
             enemy_element.update(delta_ms, self.plataform_list)
-
+    
             rect_enemy = enemy_element.rect
-            if self.player_1.rect.colliderect(rect_enemy) and self.player_1.rect.top < rect_enemy.bottom:
+    
+            # Obtener las coordenadas de los rectángulos adicionales
+            rect_enemy_top = pygame.Rect(rect_enemy.left, rect_enemy.top - 10, rect_enemy.width, 10)
+            rect_player_bottom = pygame.Rect(self.player_1.rect.left, self.player_1.rect.bottom, self.player_1.rect.width, 10)
+    
+            # Colisión entre el rectángulo superior del enemigo y el rectángulo inferior del jugador
+            if rect_player_bottom.colliderect(rect_enemy_top):
+                # El enemigo muere
                 self.enemy_list.remove(enemy_element)
                 self.player_1.score += 10
-        
+    
+            # Colisión entre cualquier parte del jugador y el enemigo (excepto el rectángulo inferior)
+            elif self.player_1.rect.colliderect(rect_enemy) and self.player_1.rect.bottom > rect_enemy.top:
+                if self.player_1.can_shoot():
+                    # El jugador pierde vida
+                    self.player_1.lives -= 1
+                break
+                
         self.pb_lives.value = self.player_1.lives
 
         if not self.player_moved:

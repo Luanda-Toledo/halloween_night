@@ -51,6 +51,7 @@ class Player:
         self.ground_collition_rect = pygame.Rect(self.collition_rect)
         self.ground_collition_rect.height = GROUND_COLLIDE_H
         self.ground_collition_rect.y = y + self.rect.height - GROUND_COLLIDE_H
+        self.ultima_colision = False
 
         self.is_jump = False
         self.is_fall = False
@@ -228,6 +229,14 @@ class Player:
                 self.frame += 1 
             else: 
                 self.frame = 0
+    
+    def can_shoot(self):
+        contador_impacto = pygame.time.get_ticks() 
+        if contador_impacto - self.ultima_colision > 2000:
+            self.ultima_colision = contador_impacto
+            return True
+        else:
+            return False
 
     def points(self,coin_list):
         '''
