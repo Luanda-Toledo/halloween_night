@@ -180,7 +180,7 @@ class FormGameLevel4(Form):
             if not self.player_moved:
                 self.player_moved = True
                 self.start_time = time.time()
-                pygame.mixer.music.load("soundtracks/purgatory.mp3")
+                pygame.mixer.music.load("soundtracks/Stage 1.mp3")
                 pygame.mixer.music.play(-1)
             else:
                 self.elapsed_time += time.time() - self.start_time

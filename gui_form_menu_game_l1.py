@@ -217,7 +217,7 @@ class FormGameLevel1(Form):
             if keys[K_LEFT] or keys[K_RIGHT]:
                 self.player_moved = True
                 self.start_time = time.time()
-                pygame.mixer.music.load("soundtracks/purgatory.mp3")
+                pygame.mixer.music.load("soundtracks/Stage 1.mp3")
                 pygame.mixer.music.play(-1)
 
         self.player_1.events(delta_ms, keys)
